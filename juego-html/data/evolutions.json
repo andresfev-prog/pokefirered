@@ -1,0 +1,1356 @@
+[
+  {
+    "speciesId": 1,
+    "speciesKey": "BULBASAUR",
+    "speciesName": "Bulbasaur",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "16",
+        "level": 16,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 2,
+        "targetSpeciesKey": "IVYSAUR",
+        "targetSpeciesName": "Ivysaur",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 2,
+    "speciesKey": "IVYSAUR",
+    "speciesName": "Ivysaur",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "32",
+        "level": 32,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 3,
+        "targetSpeciesKey": "VENUSAUR",
+        "targetSpeciesName": "Venusaur",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 4,
+    "speciesKey": "CHARMANDER",
+    "speciesName": "Charmander",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "16",
+        "level": 16,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 5,
+        "targetSpeciesKey": "CHARMELEON",
+        "targetSpeciesName": "Charmeleon",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 5,
+    "speciesKey": "CHARMELEON",
+    "speciesName": "Charmeleon",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "36",
+        "level": 36,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 6,
+        "targetSpeciesKey": "CHARIZARD",
+        "targetSpeciesName": "Charizard",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 7,
+    "speciesKey": "SQUIRTLE",
+    "speciesName": "Squirtle",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "16",
+        "level": 16,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 8,
+        "targetSpeciesKey": "WARTORTLE",
+        "targetSpeciesName": "Wartortle",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 8,
+    "speciesKey": "WARTORTLE",
+    "speciesName": "Wartortle",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "36",
+        "level": 36,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 9,
+        "targetSpeciesKey": "BLASTOISE",
+        "targetSpeciesName": "Blastoise",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 10,
+    "speciesKey": "CATERPIE",
+    "speciesName": "Caterpie",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "7",
+        "level": 7,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 11,
+        "targetSpeciesKey": "METAPOD",
+        "targetSpeciesName": "Metapod",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 11,
+    "speciesKey": "METAPOD",
+    "speciesName": "Metapod",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "10",
+        "level": 10,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 12,
+        "targetSpeciesKey": "BUTTERFREE",
+        "targetSpeciesName": "Butterfree",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 13,
+    "speciesKey": "WEEDLE",
+    "speciesName": "Weedle",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "7",
+        "level": 7,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 14,
+        "targetSpeciesKey": "KAKUNA",
+        "targetSpeciesName": "Kakuna",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 14,
+    "speciesKey": "KAKUNA",
+    "speciesName": "Kakuna",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "10",
+        "level": 10,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 15,
+        "targetSpeciesKey": "BEEDRILL",
+        "targetSpeciesName": "Beedrill",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 16,
+    "speciesKey": "PIDGEY",
+    "speciesName": "Pidgey",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "18",
+        "level": 18,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 17,
+        "targetSpeciesKey": "PIDGEOTTO",
+        "targetSpeciesName": "Pidgeotto",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 17,
+    "speciesKey": "PIDGEOTTO",
+    "speciesName": "Pidgeotto",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "36",
+        "level": 36,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 18,
+        "targetSpeciesKey": "PIDGEOT",
+        "targetSpeciesName": "Pidgeot",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 19,
+    "speciesKey": "RATTATA",
+    "speciesName": "Rattata",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "20",
+        "level": 20,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 20,
+        "targetSpeciesKey": "RATICATE",
+        "targetSpeciesName": "Raticate",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 21,
+    "speciesKey": "SPEAROW",
+    "speciesName": "Spearow",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "20",
+        "level": 20,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 22,
+        "targetSpeciesKey": "FEAROW",
+        "targetSpeciesName": "Fearow",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 23,
+    "speciesKey": "EKANS",
+    "speciesName": "Ekans",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "22",
+        "level": 22,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 24,
+        "targetSpeciesKey": "ARBOK",
+        "targetSpeciesName": "Arbok",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 25,
+    "speciesKey": "PIKACHU",
+    "speciesName": "Pikachu",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_THUNDER_STONE",
+        "level": null,
+        "item": "THUNDER_STONE",
+        "itemName": "Thunderstone",
+        "requiresTrade": false,
+        "targetSpeciesId": 26,
+        "targetSpeciesKey": "RAICHU",
+        "targetSpeciesName": "Raichu",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 27,
+    "speciesKey": "SANDSHREW",
+    "speciesName": "Sandshrew",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "22",
+        "level": 22,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 28,
+        "targetSpeciesKey": "SANDSLASH",
+        "targetSpeciesName": "Sandslash",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 29,
+    "speciesKey": "NIDORAN_F",
+    "speciesName": "Nidoran♀",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "16",
+        "level": 16,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 30,
+        "targetSpeciesKey": "NIDORINA",
+        "targetSpeciesName": "Nidorina",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 30,
+    "speciesKey": "NIDORINA",
+    "speciesName": "Nidorina",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_MOON_STONE",
+        "level": null,
+        "item": "MOON_STONE",
+        "itemName": "Moon Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 31,
+        "targetSpeciesKey": "NIDOQUEEN",
+        "targetSpeciesName": "Nidoqueen",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 32,
+    "speciesKey": "NIDORAN_M",
+    "speciesName": "Nidoran♂",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "16",
+        "level": 16,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 33,
+        "targetSpeciesKey": "NIDORINO",
+        "targetSpeciesName": "Nidorino",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 33,
+    "speciesKey": "NIDORINO",
+    "speciesName": "Nidorino",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_MOON_STONE",
+        "level": null,
+        "item": "MOON_STONE",
+        "itemName": "Moon Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 34,
+        "targetSpeciesKey": "NIDOKING",
+        "targetSpeciesName": "Nidoking",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 35,
+    "speciesKey": "CLEFAIRY",
+    "speciesName": "Clefairy",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_MOON_STONE",
+        "level": null,
+        "item": "MOON_STONE",
+        "itemName": "Moon Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 36,
+        "targetSpeciesKey": "CLEFABLE",
+        "targetSpeciesName": "Clefable",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 37,
+    "speciesKey": "VULPIX",
+    "speciesName": "Vulpix",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_FIRE_STONE",
+        "level": null,
+        "item": "FIRE_STONE",
+        "itemName": "Fire Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 38,
+        "targetSpeciesKey": "NINETALES",
+        "targetSpeciesName": "Ninetales",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 39,
+    "speciesKey": "JIGGLYPUFF",
+    "speciesName": "Jigglypuff",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_MOON_STONE",
+        "level": null,
+        "item": "MOON_STONE",
+        "itemName": "Moon Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 40,
+        "targetSpeciesKey": "WIGGLYTUFF",
+        "targetSpeciesName": "Wigglytuff",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 41,
+    "speciesKey": "ZUBAT",
+    "speciesName": "Zubat",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "22",
+        "level": 22,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 42,
+        "targetSpeciesKey": "GOLBAT",
+        "targetSpeciesName": "Golbat",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 43,
+    "speciesKey": "ODDISH",
+    "speciesName": "Oddish",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "21",
+        "level": 21,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 44,
+        "targetSpeciesKey": "GLOOM",
+        "targetSpeciesName": "Gloom",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 44,
+    "speciesKey": "GLOOM",
+    "speciesName": "Gloom",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_LEAF_STONE",
+        "level": null,
+        "item": "LEAF_STONE",
+        "itemName": "Leaf Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 45,
+        "targetSpeciesKey": "VILEPLUME",
+        "targetSpeciesName": "Vileplume",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 46,
+    "speciesKey": "PARAS",
+    "speciesName": "Paras",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "24",
+        "level": 24,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 47,
+        "targetSpeciesKey": "PARASECT",
+        "targetSpeciesName": "Parasect",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 48,
+    "speciesKey": "VENONAT",
+    "speciesName": "Venonat",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "31",
+        "level": 31,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 49,
+        "targetSpeciesKey": "VENOMOTH",
+        "targetSpeciesName": "Venomoth",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 50,
+    "speciesKey": "DIGLETT",
+    "speciesName": "Diglett",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "26",
+        "level": 26,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 51,
+        "targetSpeciesKey": "DUGTRIO",
+        "targetSpeciesName": "Dugtrio",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 52,
+    "speciesKey": "MEOWTH",
+    "speciesName": "Meowth",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "28",
+        "level": 28,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 53,
+        "targetSpeciesKey": "PERSIAN",
+        "targetSpeciesName": "Persian",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 54,
+    "speciesKey": "PSYDUCK",
+    "speciesName": "Psyduck",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "33",
+        "level": 33,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 55,
+        "targetSpeciesKey": "GOLDUCK",
+        "targetSpeciesName": "Golduck",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 56,
+    "speciesKey": "MANKEY",
+    "speciesName": "Mankey",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "28",
+        "level": 28,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 57,
+        "targetSpeciesKey": "PRIMEAPE",
+        "targetSpeciesName": "Primeape",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 58,
+    "speciesKey": "GROWLITHE",
+    "speciesName": "Growlithe",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_FIRE_STONE",
+        "level": null,
+        "item": "FIRE_STONE",
+        "itemName": "Fire Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 59,
+        "targetSpeciesKey": "ARCANINE",
+        "targetSpeciesName": "Arcanine",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 60,
+    "speciesKey": "POLIWAG",
+    "speciesName": "Poliwag",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "25",
+        "level": 25,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 61,
+        "targetSpeciesKey": "POLIWHIRL",
+        "targetSpeciesName": "Poliwhirl",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 61,
+    "speciesKey": "POLIWHIRL",
+    "speciesName": "Poliwhirl",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_WATER_STONE",
+        "level": null,
+        "item": "WATER_STONE",
+        "itemName": "Water Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 62,
+        "targetSpeciesKey": "POLIWRATH",
+        "targetSpeciesName": "Poliwrath",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 63,
+    "speciesKey": "ABRA",
+    "speciesName": "Abra",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "16",
+        "level": 16,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 64,
+        "targetSpeciesKey": "KADABRA",
+        "targetSpeciesName": "Kadabra",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 64,
+    "speciesKey": "KADABRA",
+    "speciesName": "Kadabra",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_LINKING_CORD",
+        "level": null,
+        "item": "LINKING_CORD",
+        "itemName": "Cordón Unión",
+        "requiresTrade": false,
+        "targetSpeciesId": 65,
+        "targetSpeciesKey": "ALAKAZAM",
+        "targetSpeciesName": "Alakazam",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 66,
+    "speciesKey": "MACHOP",
+    "speciesName": "Machop",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "28",
+        "level": 28,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 67,
+        "targetSpeciesKey": "MACHOKE",
+        "targetSpeciesName": "Machoke",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 67,
+    "speciesKey": "MACHOKE",
+    "speciesName": "Machoke",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_LINKING_CORD",
+        "level": null,
+        "item": "LINKING_CORD",
+        "itemName": "Cordón Unión",
+        "requiresTrade": false,
+        "targetSpeciesId": 68,
+        "targetSpeciesKey": "MACHAMP",
+        "targetSpeciesName": "Machamp",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 69,
+    "speciesKey": "BELLSPROUT",
+    "speciesName": "Bellsprout",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "21",
+        "level": 21,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 70,
+        "targetSpeciesKey": "WEEPINBELL",
+        "targetSpeciesName": "Weepinbell",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 70,
+    "speciesKey": "WEEPINBELL",
+    "speciesName": "Weepinbell",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_LEAF_STONE",
+        "level": null,
+        "item": "LEAF_STONE",
+        "itemName": "Leaf Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 71,
+        "targetSpeciesKey": "VICTREEBEL",
+        "targetSpeciesName": "Victreebel",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 72,
+    "speciesKey": "TENTACOOL",
+    "speciesName": "Tentacool",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "30",
+        "level": 30,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 73,
+        "targetSpeciesKey": "TENTACRUEL",
+        "targetSpeciesName": "Tentacruel",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 74,
+    "speciesKey": "GEODUDE",
+    "speciesName": "Geodude",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "25",
+        "level": 25,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 75,
+        "targetSpeciesKey": "GRAVELER",
+        "targetSpeciesName": "Graveler",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 75,
+    "speciesKey": "GRAVELER",
+    "speciesName": "Graveler",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_LINKING_CORD",
+        "level": null,
+        "item": "LINKING_CORD",
+        "itemName": "Cordón Unión",
+        "requiresTrade": false,
+        "targetSpeciesId": 76,
+        "targetSpeciesKey": "GOLEM",
+        "targetSpeciesName": "Golem",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 77,
+    "speciesKey": "PONYTA",
+    "speciesName": "Ponyta",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "40",
+        "level": 40,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 78,
+        "targetSpeciesKey": "RAPIDASH",
+        "targetSpeciesName": "Rapidash",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 79,
+    "speciesKey": "SLOWPOKE",
+    "speciesName": "Slowpoke",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "37",
+        "level": 37,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 80,
+        "targetSpeciesKey": "SLOWBRO",
+        "targetSpeciesName": "Slowbro",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 81,
+    "speciesKey": "MAGNEMITE",
+    "speciesName": "Magnemite",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "30",
+        "level": 30,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 82,
+        "targetSpeciesKey": "MAGNETON",
+        "targetSpeciesName": "Magneton",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 84,
+    "speciesKey": "DODUO",
+    "speciesName": "Doduo",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "31",
+        "level": 31,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 85,
+        "targetSpeciesKey": "DODRIO",
+        "targetSpeciesName": "Dodrio",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 86,
+    "speciesKey": "SEEL",
+    "speciesName": "Seel",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "34",
+        "level": 34,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 87,
+        "targetSpeciesKey": "DEWGONG",
+        "targetSpeciesName": "Dewgong",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 88,
+    "speciesKey": "GRIMER",
+    "speciesName": "Grimer",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "38",
+        "level": 38,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 89,
+        "targetSpeciesKey": "MUK",
+        "targetSpeciesName": "Muk",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 90,
+    "speciesKey": "SHELLDER",
+    "speciesName": "Shellder",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_WATER_STONE",
+        "level": null,
+        "item": "WATER_STONE",
+        "itemName": "Water Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 91,
+        "targetSpeciesKey": "CLOYSTER",
+        "targetSpeciesName": "Cloyster",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 92,
+    "speciesKey": "GASTLY",
+    "speciesName": "Gastly",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "25",
+        "level": 25,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 93,
+        "targetSpeciesKey": "HAUNTER",
+        "targetSpeciesName": "Haunter",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 93,
+    "speciesKey": "HAUNTER",
+    "speciesName": "Haunter",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_LINKING_CORD",
+        "level": null,
+        "item": "LINKING_CORD",
+        "itemName": "Cordón Unión",
+        "requiresTrade": false,
+        "targetSpeciesId": 94,
+        "targetSpeciesKey": "GENGAR",
+        "targetSpeciesName": "Gengar",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 96,
+    "speciesKey": "DROWZEE",
+    "speciesName": "Drowzee",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "26",
+        "level": 26,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 97,
+        "targetSpeciesKey": "HYPNO",
+        "targetSpeciesName": "Hypno",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 98,
+    "speciesKey": "KRABBY",
+    "speciesName": "Krabby",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "28",
+        "level": 28,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 99,
+        "targetSpeciesKey": "KINGLER",
+        "targetSpeciesName": "Kingler",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 100,
+    "speciesKey": "VOLTORB",
+    "speciesName": "Voltorb",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "30",
+        "level": 30,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 101,
+        "targetSpeciesKey": "ELECTRODE",
+        "targetSpeciesName": "Electrode",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 102,
+    "speciesKey": "EXEGGCUTE",
+    "speciesName": "Exeggcute",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_LEAF_STONE",
+        "level": null,
+        "item": "LEAF_STONE",
+        "itemName": "Leaf Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 103,
+        "targetSpeciesKey": "EXEGGUTOR",
+        "targetSpeciesName": "Exeggutor",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 104,
+    "speciesKey": "CUBONE",
+    "speciesName": "Cubone",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "28",
+        "level": 28,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 105,
+        "targetSpeciesKey": "MAROWAK",
+        "targetSpeciesName": "Marowak",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 109,
+    "speciesKey": "KOFFING",
+    "speciesName": "Koffing",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "35",
+        "level": 35,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 110,
+        "targetSpeciesKey": "WEEZING",
+        "targetSpeciesName": "Weezing",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 111,
+    "speciesKey": "RHYHORN",
+    "speciesName": "Rhyhorn",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "42",
+        "level": 42,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 112,
+        "targetSpeciesKey": "RHYDON",
+        "targetSpeciesName": "Rhydon",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 116,
+    "speciesKey": "HORSEA",
+    "speciesName": "Horsea",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "32",
+        "level": 32,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 117,
+        "targetSpeciesKey": "SEADRA",
+        "targetSpeciesName": "Seadra",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 118,
+    "speciesKey": "GOLDEEN",
+    "speciesName": "Goldeen",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "33",
+        "level": 33,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 119,
+        "targetSpeciesKey": "SEAKING",
+        "targetSpeciesName": "Seaking",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 120,
+    "speciesKey": "STARYU",
+    "speciesName": "Staryu",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_WATER_STONE",
+        "level": null,
+        "item": "WATER_STONE",
+        "itemName": "Water Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 121,
+        "targetSpeciesKey": "STARMIE",
+        "targetSpeciesName": "Starmie",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 129,
+    "speciesKey": "MAGIKARP",
+    "speciesName": "Magikarp",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "20",
+        "level": 20,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 130,
+        "targetSpeciesKey": "GYARADOS",
+        "targetSpeciesName": "Gyarados",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 133,
+    "speciesKey": "EEVEE",
+    "speciesName": "Eevee",
+    "evolutions": [
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_THUNDER_STONE",
+        "level": null,
+        "item": "THUNDER_STONE",
+        "itemName": "Thunderstone",
+        "requiresTrade": false,
+        "targetSpeciesId": 135,
+        "targetSpeciesKey": "JOLTEON",
+        "targetSpeciesName": "Jolteon",
+        "targetInKanto": true
+      },
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_WATER_STONE",
+        "level": null,
+        "item": "WATER_STONE",
+        "itemName": "Water Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 134,
+        "targetSpeciesKey": "VAPOREON",
+        "targetSpeciesName": "Vaporeon",
+        "targetInKanto": true
+      },
+      {
+        "method": "EVO_ITEM",
+        "param": "ITEM_FIRE_STONE",
+        "level": null,
+        "item": "FIRE_STONE",
+        "itemName": "Fire Stone",
+        "requiresTrade": false,
+        "targetSpeciesId": 136,
+        "targetSpeciesKey": "FLAREON",
+        "targetSpeciesName": "Flareon",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 138,
+    "speciesKey": "OMANYTE",
+    "speciesName": "Omanyte",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "40",
+        "level": 40,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 139,
+        "targetSpeciesKey": "OMASTAR",
+        "targetSpeciesName": "Omastar",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 140,
+    "speciesKey": "KABUTO",
+    "speciesName": "Kabuto",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "40",
+        "level": 40,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 141,
+        "targetSpeciesKey": "KABUTOPS",
+        "targetSpeciesName": "Kabutops",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 147,
+    "speciesKey": "DRATINI",
+    "speciesName": "Dratini",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "30",
+        "level": 30,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 148,
+        "targetSpeciesKey": "DRAGONAIR",
+        "targetSpeciesName": "Dragonair",
+        "targetInKanto": true
+      }
+    ]
+  },
+  {
+    "speciesId": 148,
+    "speciesKey": "DRAGONAIR",
+    "speciesName": "Dragonair",
+    "evolutions": [
+      {
+        "method": "EVO_LEVEL",
+        "param": "55",
+        "level": 55,
+        "item": null,
+        "itemName": null,
+        "requiresTrade": false,
+        "targetSpeciesId": 149,
+        "targetSpeciesKey": "DRAGONITE",
+        "targetSpeciesName": "Dragonite",
+        "targetInKanto": true
+      }
+    ]
+  }
+]

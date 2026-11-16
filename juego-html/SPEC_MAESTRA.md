@@ -74,3 +74,17 @@ La Meseta Añil se divide en **dos etapas secuenciales**:
 2. **Fase 2 (Motor de Combate):** Implementar interfaz de batalla, fórmulas de daño, IA básica, escalado dinámico de niveles y uso de objetos.
 3. **Fase 3 (Overworld):** Extraer *tilesets*, mapas, colisiones y *sprites* de personajes para navegación fluida en HTML5 Canvas.
 4. **Fase 4 (Progresión y UI):** Integrar pantalla de título, selector de personaje, eventos de la ruta Ash, tiendas con guía de evolución, Torneo de la Liga y sistema de guardado de 3 ranuras + `.json`.
+
+---
+
+## 8. Nuevas Mecánicas Aprobadas (Ciclo Horario, Eventos Especiales y Post-Liga)
+1. **Ciclo Horario (Día / Tarde / Noche) y Hábitos de Aparición:**
+   * El juego detecta la hora real del dispositivo (`día`: **06:00–16:59**, `tarde`: **17:00–19:59**, `noche`: **20:00–05:59**) aplicando un filtro visual de iluminación ambiental en el Canvas.
+   * Los encuentros salvajes en exteriores (`environment: "outdoor"`) filtran las especies según su hábito (`diurnal`, `nocturnal` o `any`), excepto en cuevas e interiores (`environment: "cave"`), donde los Pokémon aparecen sin importar la hora.
+2. **Grand Prix P1 (Afueras de Ciudad Fucsia):**
+   * Torneo especial inspirado en el anime que exige llevar al menos un Pokémon de tipo **Lucha (`FIGHTING`)** en el equipo para inscribirse.
+3. **Carrera de la Zona Safari:**
+   * Evento especial en la Zona Safari; al ganarlo, se activa una bandera permanente que aumenta la probabilidad de encuentro y reduce la tasa de huida (`safariZoneFleeRate`) de los Pokémon raros en esa zona.
+4. **Batalla de la Frontera (Post-Liga — Enfoque Anime en Kanto):**
+   * Tras ganar la Liga Pokémon, los **7 Ases de la Frontera** aparecen en puntos clave de Kanto utilizando el motor de combate estándar con escalado dinámico de niveles, desbloqueándose mediante hitos específicos de la aventura (su diseño detallado se organizará al llegar a la Fase 4).
+

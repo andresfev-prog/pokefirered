@@ -1,0 +1,331 @@
+[
+  {
+    "id": 1,
+    "key": "POKE_BALL",
+    "itemId": "ITEM_POKE_BALL",
+    "name": "Poké Ball",
+    "category": "pokeball",
+    "price": 200,
+    "usableInBattle": true,
+    "usableInOverworld": false,
+    "catchMultiplier": 1.0,
+    "description": "Dispositivo estándar para capturar Pokémon salvajes (ratio ×1.0)."
+  },
+  {
+    "id": 2,
+    "key": "GREAT_BALL",
+    "itemId": "ITEM_GREAT_BALL",
+    "name": "Super Ball",
+    "category": "pokeball",
+    "price": 600,
+    "usableInBattle": true,
+    "usableInOverworld": false,
+    "catchMultiplier": 1.5,
+    "description": "Poké Ball de alto rendimiento con mejor tasa de captura que una Poké Ball normal (ratio ×1.5)."
+  },
+  {
+    "id": 3,
+    "key": "ULTRA_BALL",
+    "itemId": "ITEM_ULTRA_BALL",
+    "name": "Ultra Ball",
+    "category": "pokeball",
+    "price": 1200,
+    "usableInBattle": true,
+    "usableInOverworld": false,
+    "catchMultiplier": 2.0,
+    "description": "Poké Ball de grado superior con una probabilidad de captura muy alta (ratio ×2.0)."
+  },
+  {
+    "id": 4,
+    "key": "SAFARI_BALL",
+    "itemId": "ITEM_SAFARI_BALL",
+    "name": "Safari Ball",
+    "category": "pokeball",
+    "price": 0,
+    "usableInBattle": true,
+    "usableInOverworld": false,
+    "catchMultiplier": 1.5,
+    "safariOnly": true,
+    "description": "Poké Ball especial exclusiva de la Zona Safari (ratio ×1.5)."
+  },
+  {
+    "id": 5,
+    "key": "POTION",
+    "itemId": "ITEM_POTION",
+    "name": "Poción",
+    "category": "healing",
+    "price": 300,
+    "usableInBattle": true,
+    "usableInOverworld": true,
+    "healHp": 20,
+    "description": "Medicina en espray que restaura 20 PS de un Pokémon."
+  },
+  {
+    "id": 6,
+    "key": "SUPER_POTION",
+    "itemId": "ITEM_SUPER_POTION",
+    "name": "Superpoción",
+    "category": "healing",
+    "price": 700,
+    "usableInBattle": true,
+    "usableInOverworld": true,
+    "healHp": 50,
+    "description": "Medicina en espray que restaura 50 PS de un Pokémon."
+  },
+  {
+    "id": 7,
+    "key": "HYPER_POTION",
+    "itemId": "ITEM_HYPER_POTION",
+    "name": "Hiperpoción",
+    "category": "healing",
+    "price": 1200,
+    "usableInBattle": true,
+    "usableInOverworld": true,
+    "healHp": 200,
+    "description": "Medicina en espray que restaura 200 PS de un Pokémon."
+  },
+  {
+    "id": 8,
+    "key": "FULL_RESTORE",
+    "itemId": "ITEM_FULL_RESTORE",
+    "name": "Restaurar Todo",
+    "category": "healing",
+    "price": 3000,
+    "usableInBattle": true,
+    "usableInOverworld": true,
+    "healHp": "full",
+    "cureStatus": "ALL",
+    "description": "Medicina de lujo que restaura todos los PS y cura cualquier problema de estado."
+  },
+  {
+    "id": 9,
+    "key": "ANTIDOTE",
+    "itemId": "ITEM_ANTIDOTE",
+    "name": "Antídoto",
+    "category": "status",
+    "price": 100,
+    "usableInBattle": true,
+    "usableInOverworld": true,
+    "cureStatus": "POISON",
+    "description": "Cura el envenenamiento (normal o grave) de un Pokémon."
+  },
+  {
+    "id": 10,
+    "key": "PARALYZE_HEAL",
+    "itemId": "ITEM_PARALYZE_HEAL",
+    "name": "Antiparalizar",
+    "category": "status",
+    "price": 200,
+    "usableInBattle": true,
+    "usableInOverworld": true,
+    "cureStatus": "PARALYSIS",
+    "description": "Cura la parálisis de un Pokémon."
+  },
+  {
+    "id": 11,
+    "key": "AWAKENING",
+    "itemId": "ITEM_AWAKENING",
+    "name": "Despertar",
+    "category": "status",
+    "price": 250,
+    "usableInBattle": true,
+    "usableInOverworld": true,
+    "cureStatus": "SLEEP",
+    "description": "Despierta a un Pokémon dormido."
+  },
+  {
+    "id": 12,
+    "key": "BURN_HEAL",
+    "itemId": "ITEM_BURN_HEAL",
+    "name": "Antiquemar",
+    "category": "status",
+    "price": 250,
+    "usableInBattle": true,
+    "usableInOverworld": true,
+    "cureStatus": "BURN",
+    "description": "Cura las quemaduras de un Pokémon."
+  },
+  {
+    "id": 13,
+    "key": "ICE_HEAL",
+    "itemId": "ITEM_ICE_HEAL",
+    "name": "Antihielo",
+    "category": "status",
+    "price": 250,
+    "usableInBattle": true,
+    "usableInOverworld": true,
+    "cureStatus": "FREEZE",
+    "description": "Descongela a un Pokémon congelado."
+  },
+  {
+    "id": 14,
+    "key": "REVIVE",
+    "itemId": "ITEM_REVIVE",
+    "name": "Revivir",
+    "category": "revive",
+    "price": 1500,
+    "usableInBattle": true,
+    "usableInOverworld": true,
+    "revive": true,
+    "healFraction": 0.5,
+    "description": "Reanima a un Pokémon debilitado y restaura la mitad de sus PS máximos."
+  },
+  {
+    "id": 15,
+    "key": "FIRE_STONE",
+    "itemId": "ITEM_FIRE_STONE",
+    "name": "Piedra Fuego",
+    "category": "evolution",
+    "price": 2100,
+    "usableInBattle": false,
+    "usableInOverworld": true,
+    "evolvesSpecies": [
+      {
+        "from": "Vulpix",
+        "to": "Ninetales"
+      },
+      {
+        "from": "Growlithe",
+        "to": "Arcanine"
+      },
+      {
+        "from": "Eevee",
+        "to": "Flareon"
+      }
+    ],
+    "description": "Piedra evolutiva ardiente. Evoluciona a: Vulpix -> Ninetales, Growlithe -> Arcanine y Eevee -> Flareon."
+  },
+  {
+    "id": 16,
+    "key": "WATER_STONE",
+    "itemId": "ITEM_WATER_STONE",
+    "name": "Piedra Agua",
+    "category": "evolution",
+    "price": 2100,
+    "usableInBattle": false,
+    "usableInOverworld": true,
+    "evolvesSpecies": [
+      {
+        "from": "Poliwhirl",
+        "to": "Poliwrath"
+      },
+      {
+        "from": "Shellder",
+        "to": "Cloyster"
+      },
+      {
+        "from": "Staryu",
+        "to": "Starmie"
+      },
+      {
+        "from": "Eevee",
+        "to": "Vaporeon"
+      }
+    ],
+    "description": "Piedra evolutiva cristalina. Evoluciona a: Poliwhirl -> Poliwrath, Shellder -> Cloyster, Staryu -> Starmie y Eevee -> Vaporeon."
+  },
+  {
+    "id": 17,
+    "key": "THUNDER_STONE",
+    "itemId": "ITEM_THUNDER_STONE",
+    "name": "Piedra Trueno",
+    "category": "evolution",
+    "price": 2100,
+    "usableInBattle": false,
+    "usableInOverworld": true,
+    "evolvesSpecies": [
+      {
+        "from": "Pikachu",
+        "to": "Raichu"
+      },
+      {
+        "from": "Eevee",
+        "to": "Jolteon"
+      }
+    ],
+    "description": "Piedra evolutiva eléctrica. Evoluciona a: Pikachu -> Raichu y Eevee -> Jolteon."
+  },
+  {
+    "id": 18,
+    "key": "LEAF_STONE",
+    "itemId": "ITEM_LEAF_STONE",
+    "name": "Piedra Hoja",
+    "category": "evolution",
+    "price": 2100,
+    "usableInBattle": false,
+    "usableInOverworld": true,
+    "evolvesSpecies": [
+      {
+        "from": "Gloom",
+        "to": "Vileplume"
+      },
+      {
+        "from": "Weepinbell",
+        "to": "Victreebel"
+      },
+      {
+        "from": "Exeggcute",
+        "to": "Exeggutor"
+      }
+    ],
+    "description": "Piedra evolutiva frondosa. Evoluciona a: Gloom -> Vileplume, Weepinbell -> Victreebel y Exeggcute -> Exeggutor."
+  },
+  {
+    "id": 19,
+    "key": "MOON_STONE",
+    "itemId": "ITEM_MOON_STONE",
+    "name": "Piedra Lunar",
+    "category": "evolution",
+    "price": 2100,
+    "usableInBattle": false,
+    "usableInOverworld": true,
+    "evolvesSpecies": [
+      {
+        "from": "Nidorina",
+        "to": "Nidoqueen"
+      },
+      {
+        "from": "Nidorino",
+        "to": "Nidoking"
+      },
+      {
+        "from": "Clefairy",
+        "to": "Clefable"
+      },
+      {
+        "from": "Jigglypuff",
+        "to": "Wigglytuff"
+      }
+    ],
+    "description": "Piedra evolutiva nocturna. Evoluciona a: Nidorina -> Nidoqueen, Nidorino -> Nidoking, Clefairy -> Clefable y Jigglypuff -> Wigglytuff."
+  },
+  {
+    "id": 20,
+    "key": "LINKING_CORD",
+    "itemId": "ITEM_LINKING_CORD",
+    "name": "Cordón Unión",
+    "category": "evolution",
+    "price": 3000,
+    "usableInBattle": false,
+    "usableInOverworld": true,
+    "evolvesSpecies": [
+      {
+        "from": "Kadabra",
+        "to": "Alakazam"
+      },
+      {
+        "from": "Machoke",
+        "to": "Machamp"
+      },
+      {
+        "from": "Graveler",
+        "to": "Golem"
+      },
+      {
+        "from": "Haunter",
+        "to": "Gengar"
+      }
+    ],
+    "description": "Cable especial que libera la evolución sin necesidad de intercambio. Evoluciona a: Kadabra -> Alakazam, Machoke -> Machamp, Graveler -> Golem y Haunter -> Gengar."
+  }
+]

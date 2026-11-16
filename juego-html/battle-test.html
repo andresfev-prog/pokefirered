@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banco de Pruebas de Combate — Pokémon Red/Green Web</title>
+    <link rel="stylesheet" href="./css/battle-test.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-title">
+        <span>⚔️ Pokémon Red/Green Web — Banco de Pruebas de Combate (Fase 2)</span>
+        <span class="badge-pill">Fórmulas Gen 3 (pokefirered)</span>
+      </div>
+      <div class="header-controls">
+        <span class="badge-pill" id="time-badge">🕒 Hora local</span>
+        <label style="display:flex; align-items:center; gap:6px; font-size:0.8rem; color:#94a3b8;">
+          Iluminación:
+          <select id="env-override" style="width:auto; padding:4px 8px; font-size:0.8rem;">
+            <option value="day">Día (06:00–16:59)</option>
+            <option value="evening">Tarde (17:00–19:59)</option>
+            <option value="night">Noche (20:00–05:59)</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <div id="protocol-banner" class="banner-warning hidden">
+      <strong>Nota de ejecución local:</strong> Los navegadores bloquean <code>fetch()</code> sobre archivos
+      <code>file://</code>. Sirve la carpeta <code>juego-html/</code> con un servidor HTTP local (por ejemplo:
+      <code>python3 -m http.server 8080</code> dentro de <code>juego-html</code>) y abre
+      <code>http://localhost:8080/battle-test.html</code>.
+    </div>
+
+    <main class="layout-grid">
+      <!-- Left Configurator + Dynamic Scaler Inspector -->
+      <aside class="panel">
+        <h2 class="panel-title">Configuración de Combate</h2>
+
+        <div class="form-group">
+          <label>Formato de Equipo</label>
+          <div class="segmented">
+            <button type="button" class="seg-btn" data-match-size="1">1 vs 1</button>
+            <button type="button" class="seg-btn active" data-match-size="3">3 vs 3</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo de Encuentro</label>
+          <div class="segmented">
+            <button type="button" class="seg-btn" data-battle-type="wild">Salvaje</button>
+            <button type="button" class="seg-btn" data-battle-type="trainer">Entrenador</button>
+            <button type="button" class="seg-btn active" data-battle-type="leader">Líder Gimnasio</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="enemy-preset">Rival / Escenario</label>
+          <select id="enemy-preset"></select>
+        </div>
+
+        <div class="form-group hidden" id="trainer-offset-group">
+          <label for="trainer-offset">Desfase Entrenador Común (SPEC §3)</label>
+          <select id="trainer-offset">
+            <option value="2">N_obj − 2 niveles</option>
+            <option value="3">N_obj − 3 niveles</option>
+          </select>
+        </div>
+
+        <div class="form-group hidden" id="safari-boost-group">
+          <label class="checkbox-row">
+            <input type="checkbox" id="safari-boost" />
+            <span>Bono Carrera Zona Safari (+25% captura)</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>Equipo del Jugador (ajusta niveles para ver escalado)</label>
+          <div class="quick-row">
+            <button type="button" class="btn-small" data-team-preset="starters_14">Iniciales Nv.14</button>
+            <button type="button" class="btn-small" data-team-preset="mid_25">Medio Nv.25</button>
+            <button type="button" class="btn-small" data-team-preset="high_45">Alto Nv.45+</button>
+            <button type="button" class="btn-small" data-team-preset="imbalanced">Top 3 [40,36,10]</button>
+          </div>
+          <div id="player-slots"></div>
+        </div>
+
+        <button type="button" id="start-battle-btn" class="btn-primary">Iniciar / Reiniciar Combate</button>
+
+        <section id="scaler-preview" class="scaler-box">
+          <h3>Escalado Dinámico en Vivo</h3>
+          <div class="scaler-summary">Cargando datos...</div>
+        </section>
+      </aside>
+
+      <!-- Right Main Arena, Controls & Log -->
+      <section class="main-stage">
+        <div id="battle-arena" class="battle-arena env-day"></div>
+
+        <div class="panel">
+          <div class="tabs-bar">
+            <button type="button" class="tab-btn active" data-tab="fight">⚔️ Luchar</button>
+            <button type="button" class="tab-btn" data-tab="bag">🎒 Mochila</button>
+            <button type="button" class="tab-btn" data-tab="pokemon">🔄 Pokémon</button>
+            <button type="button" class="tab-btn" data-tab="run">🏃 Huir</button>
+          </div>
+          <div id="tab-content"></div>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel-title">Registro de Combate (Turno a Turno)</h2>
+          <div id="battle-log" class="battle-log"></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./js/battle/battleTestUI.js"></script>
+  </body>
+</html>
