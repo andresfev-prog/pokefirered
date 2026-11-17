@@ -879,3 +879,76 @@ select {
   color: #38bdf8;
   font-weight: 700;
 }
+
+/* ---------------- BARRA OFFLINE PWA ---------------- */
+.offline-bar {
+  background: rgba(19, 27, 46, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.offline-bar-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.offline-bar-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.offline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.16);
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.offline-pill.ready {
+  background: rgba(34, 197, 94, 0.16);
+  color: #86efac;
+  border-color: rgba(34, 197, 94, 0.45);
+}
+
+.offline-pill.offline {
+  background: rgba(251, 191, 36, 0.18);
+  color: #fde047;
+  border-color: rgba(251, 191, 36, 0.45);
+}
+
+.offline-subtext {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+}
+
+.offline-progress-track {
+  width: 170px;
+  height: 10px;
+  border-radius: 999px;
+  background: #0b101b;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  overflow: hidden;
+}
+
+.offline-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #22c55e);
+  transition: width 0.2s ease;
+}
+

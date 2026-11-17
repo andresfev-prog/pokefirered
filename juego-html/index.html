@@ -2,9 +2,17 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#b91c1c" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="FireRed Kanto" />
   <title>Pokémon FireRed / Kanto Anime — Edición Web</title>
-  <link rel="stylesheet" href="css/game.css" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="./assets/icon-192.png" />
+  <link rel="stylesheet" href="./css/game.css" />
 </head>
 <body>
   <!-- ================= PANTALLA DE TÍTULO ================= -->
@@ -20,6 +28,22 @@
         <button id="tabTitleImport" type="button" class="btn title-tab-btn">Importar Partida (.json)</button>
       </div>
     </header>
+
+    <!-- Barra de Estado y Descarga 100% Offline (PWA) -->
+    <section id="offlineStatusBar" class="offline-bar">
+      <div class="offline-bar-left">
+        <span id="offlineStatusBadge" class="offline-pill">🌐 Online · Verificando caché...</span>
+        <span id="offlineProgressText" class="offline-subtext">Descarga mapas, tilesets y sprites para jugar sin internet.</span>
+      </div>
+      <div class="offline-bar-right">
+        <div id="offlineProgressWrap" class="offline-progress-track hidden">
+          <div id="offlineProgressFill" class="offline-progress-fill" style="width: 0%;"></div>
+        </div>
+        <button id="btnDownloadOffline" type="button" class="btn btn-sm btn-gold">
+          ⬇️ Descargar datos Offline
+        </button>
+      </div>
+    </section>
 
     <!-- Panel Continuar (3 Ranuras independientes) -->
     <section id="panelContinue" class="title-panel">
@@ -383,6 +407,6 @@
     </div>
   </div>
 
-  <script type="module" src="js/game/mainApp.js"></script>
+  <script type="module" src="./js/game/mainApp.js"></script>
 </body>
 </html>

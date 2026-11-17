@@ -123,6 +123,11 @@ class PokemonWebGame {
     this.dialogueQueue = [];
     this.toastTimer = null;
 
+    this.swRegistration = null;
+    this.offlineReady = false;
+    this.offlineDownloading = false;
+    this.offlineCounts = { cached: 0, total: 0 };
+
     this.dom = this.collectDom();
   }
 
@@ -131,6 +136,12 @@ class PokemonWebGame {
     return {
       screenTitle: id("screenTitle"),
       screenGame: id("screenGame"),
+
+      offlineStatusBadge: id("offlineStatusBadge"),
+      offlineProgressText: id("offlineProgressText"),
+      offlineProgressWrap: id("offlineProgressWrap"),
+      offlineProgressFill: id("offlineProgressFill"),
+      btnDownloadOffline: id("btnDownloadOffline"),
 
       tabTitleContinue: id("tabTitleContinue"),
       tabTitleNewGame: id("tabTitleNewGame"),
@@ -260,6 +271,7 @@ class PokemonWebGame {
   }
 
   async init() {
+    this.initOfflinePwa();
     this.coreData = await this.loader.loadCoreData();
     this.dataMaps = buildDataMaps({
       species: this.coreData.species,
@@ -290,6 +302,11 @@ class PokemonWebGame {
   }
 
   bindEvents() {
+    // Offline PWA Download & Connectivity
+    this.dom.btnDownloadOffline.addEventListener("click", () => this.startOfflineAssetsDownload());
+    window.addEventListener("online", () => this.updateOfflineStatusUI());
+    window.addEventListener("offline", () => this.updateOfflineStatusUI());
+
     // Title tabs
     this.dom.tabTitleContinue.addEventListener("click", () => this.switchTitleTab("continue"));
     this.dom.tabTitleNewGame.addEventListener("click", () => this.switchTitleTab("newgame"));
@@ -2177,7 +2194,132 @@ class PokemonWebGame {
       this.overworldEngine?.setPaused(false);
     }
   }
+
+  // -------------------------------------------------------------------------
+  // MODO 100 % OFFLINE Y SERVICE WORKER (RUTAS RELATIVAS ./)
+  // -------------------------------------------------------------------------
+  async initOfflinePwa() {
+    this.updateOfflineStatusUI();
+
+    if (!("serviceWorker" in navigator)) {
+      this.dom.offlineProgressText.textContent = "Este navegador no soporta Service Workers.";
+      this.dom.btnDownloadOffline.disabled = true;
+      return;
+    }
+
+    navigator.serviceWorker.addEventListener("message", (event) => {
+      const msg = event.data || {};
+      if (msg.type === "OFFLINE_STATUS") {
+        this.offlineReady = Boolean(msg.ready);
+        this.offlineCounts = { cached: msg.cachedCount || 0, total: msg.totalCount || 0 };
+        this.updateOfflineStatusUI();
+        if (msg.totalCount > 0) {
+          const pct = Math.round(((msg.cachedCount || 0) / msg.totalCount) * 100);
+          this.dom.offlineProgressWrap.classList.toggle("hidden", !this.offlineDownloading && pct === 0);
+          this.dom.offlineProgressFill.style.width = `${pct}%`;
+          this.dom.offlineProgressText.textContent = this.offlineReady
+            ? `100 % Offline listo (${msg.cachedCount}/${msg.totalCount} archivos en caché).`
+            : `En caché: ${msg.cachedCount}/${msg.totalCount} archivos (${pct}%). Pulsa para completar.`;
+        }
+      } else if (msg.type === "OFFLINE_CACHE_PROGRESS") {
+        this.offlineDownloading = true;
+        this.dom.offlineProgressWrap.classList.remove("hidden");
+        this.dom.offlineProgressFill.style.width = `${msg.percent || 0}%`;
+        this.dom.offlineProgressText.textContent = `Descargando: ${msg.completed}/${msg.total} archivos (${msg.percent || 0}%)`;
+        this.updateOfflineStatusUI();
+      } else if (msg.type === "OFFLINE_CACHE_COMPLETE") {
+        this.offlineDownloading = false;
+        this.offlineReady = Boolean(msg.ready);
+        this.offlineCounts = {
+          cached: Math.max(0, (msg.total || 0) - (msg.failed || 0)),
+          total: msg.total || 0,
+        };
+        const pct = msg.total > 0 ? Math.round((this.offlineCounts.cached / msg.total) * 100) : 100;
+        this.dom.offlineProgressWrap.classList.remove("hidden");
+        this.dom.offlineProgressFill.style.width = `${pct}%`;
+        this.dom.offlineProgressText.textContent = msg.ready
+          ? `¡Descarga completa! ${msg.total}/${msg.total} archivos listos para jugar sin conexión.`
+          : `Completado parcialmente: ${this.offlineCounts.cached}/${msg.total} (${msg.failed} pendientes).`;
+        this.updateOfflineStatusUI();
+      }
+    });
+
+    try {
+      const reg = await navigator.serviceWorker.register("./sw.js", { scope: "./" });
+      this.swRegistration = reg;
+      const readyReg = await navigator.serviceWorker.ready;
+      const worker = readyReg.active || navigator.serviceWorker.controller || reg.active;
+      if (worker) {
+        worker.postMessage({ type: "CHECK_OFFLINE_STATUS" });
+      }
+    } catch (err) {
+      this.dom.offlineProgressText.textContent = `Service Worker requiere HTTP/HTTPS (${err.message}).`;
+      this.updateOfflineStatusUI();
+    }
+  }
+
+  updateOfflineStatusUI() {
+    if (!this.dom.offlineStatusBadge) return;
+    const isOnline = typeof navigator === "undefined" ? true : navigator.onLine !== false;
+    this.dom.offlineStatusBadge.classList.remove("ready", "offline");
+
+    if (this.offlineReady) {
+      this.dom.offlineStatusBadge.classList.add("ready");
+      this.dom.offlineStatusBadge.textContent = isOnline
+        ? "🟢 Online · Offline listo"
+        : "📡 Sin conexión · Offline listo";
+    } else if (!isOnline) {
+      this.dom.offlineStatusBadge.classList.add("offline");
+      this.dom.offlineStatusBadge.textContent = "📡 Sin conexión";
+    } else {
+      this.dom.offlineStatusBadge.textContent =
+        this.offlineCounts.total > 0
+          ? `🌐 Online · Caché ${this.offlineCounts.cached}/${this.offlineCounts.total}`
+          : "🌐 Online";
+    }
+
+    if (this.offlineDownloading) {
+      this.dom.btnDownloadOffline.disabled = true;
+      this.dom.btnDownloadOffline.textContent = "⏬ Descargando datos...";
+    } else if (this.offlineReady) {
+      this.dom.btnDownloadOffline.disabled = false;
+      this.dom.btnDownloadOffline.textContent = "✅ Offline listo (Reverificar)";
+    } else {
+      this.dom.btnDownloadOffline.disabled = false;
+      this.dom.btnDownloadOffline.textContent = "⬇️ Descargar datos Offline";
+    }
+  }
+
+  async startOfflineAssetsDownload() {
+    if (this.offlineDownloading) return;
+    if (!("serviceWorker" in navigator)) {
+      this.dom.offlineProgressText.textContent = "Service Worker no disponible en este navegador.";
+      return;
+    }
+
+    this.offlineDownloading = true;
+    this.dom.offlineProgressWrap.classList.remove("hidden");
+    this.dom.offlineProgressFill.style.width = "2%";
+    this.dom.offlineProgressText.textContent = "Preparando listado de recursos offline...";
+    this.updateOfflineStatusUI();
+
+    try {
+      const readyReg = this.swRegistration
+        ? await navigator.serviceWorker.ready
+        : await navigator.serviceWorker.register("./sw.js", { scope: "./" }).then(() => navigator.serviceWorker.ready);
+      const worker = readyReg.active || navigator.serviceWorker.controller || readyReg.installing;
+      if (!worker) {
+        throw new Error("El Service Worker aún no está activo. Recarga la página e inténtalo de nuevo.");
+      }
+      worker.postMessage({ type: "CACHE_ALL_OFFLINE_ASSETS", forceRefresh: false });
+    } catch (err) {
+      this.offlineDownloading = false;
+      this.dom.offlineProgressText.textContent = `No se pudo iniciar la descarga offline: ${err.message}`;
+      this.updateOfflineStatusUI();
+    }
+  }
 }
 
 const app = new PokemonWebGame();
 app.init();
+
