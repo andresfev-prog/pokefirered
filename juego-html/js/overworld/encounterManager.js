@@ -51,7 +51,18 @@ export function resolveEncounterMethod(tileCollision, methodOverride = null) {
 }
 
 /**
+ * Calcula la tasa de huida efectiva en Zona Safari considerando el premio de la Carrera Safari.
+ * SPEC_MAESTRA §8.3: Reduce a la mitad la tasa de huida tras ganar la Carrera de la Zona Safari.
+ */
+export function getEffectiveSafariFleeRate(species, safariRaceWon = false) {
+  const baseFlee = species?.safariZoneFleeRate || 0;
+  if (!safariRaceWon || baseFlee <= 0) return baseFlee;
+  return Math.max(1, Math.floor(baseFlee * 0.5));
+}
+
+/**
  * Filtra la tabla de encuentros de una zona según entorno (outdoor vs cave) y horario.
+ * Si safariRaceWon === true y es Zona Safari, aumenta el peso relativo de especies raras (rate <= 10).
  */
 export function filterEncountersByTimeAndEnv({
   zone,
@@ -59,11 +70,13 @@ export function filterEncountersByTimeAndEnv({
   speciesByKey = {},
   timeKey = "day",
   mapEnvironment = null,
+  safariRaceWon = false,
 }) {
   if (!zone || !zone.methods || !zone.methods[method]) {
     return {
       environment: mapEnvironment || zone?.environment || "outdoor",
       ignoresTime: false,
+      safariBoostApplied: false,
       rawCount: 0,
       entries: [],
     };
@@ -73,29 +86,36 @@ export function filterEncountersByTimeAndEnv({
   const ignoresTime = env === "cave";
   const allowed = new Set(getAllowedActivityPeriods(timeKey));
   const rawList = zone.methods[method].encounters || [];
+  const applySafariBoost = Boolean(safariRaceWon && zone.isSafariZone);
 
   const filtered = [];
   for (const slot of rawList) {
     const sp = speciesByKey[slot.speciesKey];
     const activityPeriod = sp?.activityPeriod || "any";
     if (ignoresTime || allowed.has(activityPeriod)) {
+      const baseWeight = slot.rate || 0;
+      const isRareSlot = baseWeight <= 10;
+      const effectiveWeight = applySafariBoost && isRareSlot ? baseWeight * 1.8 : baseWeight;
       filtered.push({
         ...slot,
         activityPeriod,
         species: sp || null,
+        weight: effectiveWeight,
+        rareBoosted: Boolean(applySafariBoost && isRareSlot),
       });
     }
   }
 
-  const totalRate = filtered.reduce((acc, s) => acc + (s.rate || 0), 0);
+  const totalWeight = filtered.reduce((acc, s) => acc + (s.weight || 0), 0);
   const normalized = filtered.map((s) => ({
     ...s,
-    effectiveChance: totalRate > 0 ? Math.round(((s.rate || 0) / totalRate) * 1000) / 10 : 0,
+    effectiveChance: totalWeight > 0 ? Math.round(((s.weight || 0) / totalWeight) * 1000) / 10 : 0,
   }));
 
   return {
     environment: env,
     ignoresTime,
+    safariBoostApplied: applySafariBoost,
     rawCount: rawList.length,
     entries: normalized,
   };
@@ -112,6 +132,7 @@ export function rollWildEncounter({
   timeKey = "day",
   wildZonesByMapId = {},
   speciesByKey = {},
+  safariRaceWon = false,
   forceTrigger = false,
   rng = Math.random,
 }) {
@@ -123,10 +144,14 @@ export function rollWildEncounter({
 
   const methodData = zone.methods[method];
   const baseRate = methodData.encounterRate || 15;
+  const isSafari = Boolean(zone.isSafariZone);
 
   if (!forceTrigger) {
-    // Probabilidad equilibrada por paso (aprox 9%–20% según la densidad del mapa)
-    const stepChance = Math.min(0.22, Math.max(0.09, baseRate / 150));
+    // Probabilidad equilibrada por paso (aumenta ligeramente en Zona Safari si ganó la Carrera Safari)
+    let stepChance = Math.min(0.22, Math.max(0.09, baseRate / 150));
+    if (isSafari && safariRaceWon) {
+      stepChance = Math.min(0.28, stepChance * 1.25);
+    }
     if (rng() >= stepChance) {
       return null;
     }
@@ -138,17 +163,18 @@ export function rollWildEncounter({
     speciesByKey,
     timeKey,
     mapEnvironment: map.environment,
+    safariRaceWon,
   });
 
   if (result.entries.length === 0) {
     return null;
   }
 
-  const totalWeight = result.entries.reduce((sum, item) => sum + (item.rate || 1), 0);
+  const totalWeight = result.entries.reduce((sum, item) => sum + (item.weight || item.rate || 1), 0);
   let pick = rng() * totalWeight;
   let chosen = result.entries[result.entries.length - 1];
   for (const entry of result.entries) {
-    pick -= entry.rate || 1;
+    pick -= entry.weight || entry.rate || 1;
     if (pick <= 0) {
       chosen = entry;
       break;
@@ -166,6 +192,9 @@ export function rollWildEncounter({
     mapName: map.displayName || map.name,
     environment: result.environment,
     ignoresTime: result.ignoresTime,
+    isSafariZone: isSafari,
+    safariBoostApplied: result.safariBoostApplied,
+    effectiveSafariFleeRate: getEffectiveSafariFleeRate(species, safariRaceWon),
     timeKey,
     method,
     zone,

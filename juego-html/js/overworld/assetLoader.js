@@ -76,6 +76,7 @@ export class AssetLoader {
         moves,
         typeChart,
         items,
+        evolutions,
       ] = await Promise.all([
         this.loadJson("assets/tilesets/tilesets_manifest.json"),
         this.loadJson("assets/sprites/characters/characters_manifest.json"),
@@ -86,6 +87,7 @@ export class AssetLoader {
         this.loadJson("data/moves.json"),
         this.loadJson("data/type_chart.json"),
         this.loadJson("data/items.json"),
+        this.loadJson("data/evolutions.json"),
       ]);
 
       const wildZonesByMapId = {};
@@ -107,6 +109,20 @@ export class AssetLoader {
         mapsById[m.id] = m;
       }
 
+      const evolutionsByKey = {};
+      const evolutionsById = {};
+      for (const ev of evolutions || []) {
+        evolutionsByKey[ev.speciesKey] = ev;
+        evolutionsById[ev.speciesId] = ev;
+      }
+
+      const itemsByKey = {};
+      for (const it of items || []) {
+        itemsByKey[it.key] = it;
+        if (it.itemId) itemsByKey[it.itemId] = it;
+        itemsByKey[it.id] = it;
+      }
+
       return {
         tilesetsManifest,
         charactersManifest,
@@ -121,6 +137,10 @@ export class AssetLoader {
         moves,
         typeChart,
         items,
+        itemsByKey,
+        evolutions,
+        evolutionsByKey,
+        evolutionsById,
       };
     })();
     return this.corePromise;

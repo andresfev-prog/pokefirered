@@ -34,6 +34,8 @@ export class OverworldEngine {
     onMapChange = null,
     onStepTile = null,
     onEncounterCheck = null,
+    onInteract = null,
+    getDynamicNpcs = null,
     onNotification = null,
     onDebugUpdate = null,
   }) {
@@ -44,6 +46,8 @@ export class OverworldEngine {
     this.onMapChange = onMapChange;
     this.onStepTile = onStepTile;
     this.onEncounterCheck = onEncounterCheck;
+    this.onInteract = onInteract;
+    this.getDynamicNpcs = getDynamicNpcs;
     this.onNotification = onNotification;
     this.onDebugUpdate = onDebugUpdate;
 
@@ -181,6 +185,11 @@ export class OverworldEngine {
     const tag = (e.target && e.target.tagName) || "";
     if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
 
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      this.interact();
+      return;
+    }
     if (e.key === "Shift") {
       this.shiftDown = true;
       return;
@@ -248,6 +257,7 @@ export class OverworldEngine {
 
     const bundle = await this.assetLoader.loadMapBundle(mapId);
     this.currentBundle = bundle;
+    await this.refreshDynamicNpcs();
 
     // Auto-desmontar bicicleta si el mapa no permite ciclismo
     if (this.player.bikeMode && !bundle.map.allowCycling) {
@@ -284,6 +294,82 @@ export class OverworldEngine {
     this.emitDebugUpdate();
   }
 
+  async refreshDynamicNpcs() {
+    if (!this.currentBundle?.map || !this.getDynamicNpcs) {
+      if (this.currentBundle) this.currentBundle.dynamicNpcs = [];
+      return;
+    }
+    const list = this.getDynamicNpcs(this.currentBundle.map) || [];
+    this.currentBundle.dynamicNpcs = list;
+    await Promise.all(
+      list
+        .map((n) => n.spriteFile)
+        .filter((f) => f && !this.currentBundle.npcSprites[f])
+        .map(async (f) => {
+          try {
+            this.currentBundle.npcSprites[f] = await this.assetLoader.loadImage(f);
+          } catch {
+            this.currentBundle.npcSprites[f] = null;
+          }
+        })
+    );
+  }
+
+  getNpcsForMap(map = this.currentBundle?.map) {
+    if (!map) return [];
+    const base = (map.npcs || []).filter((n) => !n.hidden);
+    const dyn =
+      this.currentBundle?.map?.id === map.id
+        ? this.currentBundle.dynamicNpcs || []
+        : this.getDynamicNpcs
+        ? this.getDynamicNpcs(map) || []
+        : [];
+    if (!dyn.length) return base;
+    const dynIds = new Set(dyn.map((d) => d.id || d.localId).filter(Boolean));
+    const filteredBase = base.filter((b) => !dynIds.has(b.localId));
+    return [...filteredBase, ...dyn];
+  }
+
+  interact() {
+    if (this.paused || this.isTransitioning || this.moveState || !this.currentBundle?.map) return false;
+    const map = this.currentBundle.map;
+    const vec = DIR_VECTORS[this.player.facing] || DIR_VECTORS.down;
+    const tx = this.player.x + vec.dx;
+    const ty = this.player.y + vec.dy;
+
+    let npc = this.getNpcAt(tx, ty, map);
+    const behavior =
+      tx >= 0 && ty >= 0 && tx < map.width && ty < map.height
+        ? map.behaviors?.[ty * map.width + tx] ?? 0
+        : 0;
+
+    // Si hay un mostrador (MB_COUNTER = 0x80), permitir hablar con la enfermera/vendedor detrás
+    if (!npc && behavior === 0x80) {
+      npc = this.getNpcAt(tx + vec.dx, ty + vec.dy, map);
+    }
+
+    const sign = (map.signs || []).find((s) => s.x === tx && s.y === ty) || null;
+    if (npc) {
+      npc.facing = DIR_OPPOSITE[this.player.facing] || npc.facing;
+    }
+
+    if (!npc && !sign && behavior !== 0x83) {
+      return false;
+    }
+
+    if (this.onInteract) {
+      this.onInteract({
+        npc,
+        sign,
+        behavior,
+        x: tx,
+        y: ty,
+        map,
+      });
+    }
+    return true;
+  }
+
   getMovementMode() {
     if (this.player.bikeMode) return "bike";
     if (this.shiftDown && this.currentBundle?.map?.allowRunning !== false) return "run";
@@ -303,7 +389,7 @@ export class OverworldEngine {
 
   getNpcAt(x, y, map = this.currentBundle?.map) {
     if (!map) return null;
-    return (map.npcs || []).find((n) => n.x === x && n.y === y) || null;
+    return this.getNpcsForMap(map).find((n) => n.x === x && n.y === y) || null;
   }
 
   findConnectionAt(nx, ny) {
@@ -686,7 +772,7 @@ export class OverworldEngine {
   _drawEntities(ctx, map, camX, camY) {
     const drawList = [];
 
-    for (const npc of map.npcs || []) {
+    for (const npc of this.getNpcsForMap(map)) {
       const img = npc.spriteFile ? this.currentBundle.npcSprites[npc.spriteFile] : null;
       if (!img) continue;
       drawList.push({

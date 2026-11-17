@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokémon FireRed / Kanto Anime — Edición Web</title>
+  <link rel="stylesheet" href="css/game.css" />
+</head>
+<body>
+  <!-- ================= PANTALLA DE TÍTULO ================= -->
+  <main id="screenTitle" class="title-screen">
+    <header class="title-hero">
+      <div class="title-brand">
+        <h1>Pokémon FireRed · Kanto Anime Web</h1>
+        <p>Motor GBA · Ciclo Horario · Eventos Anime · Liga en 2 Etapas · Batalla de la Frontera</p>
+      </div>
+      <div class="title-mode-tabs">
+        <button id="tabTitleContinue" type="button" class="btn title-tab-btn active">Continuar</button>
+        <button id="tabTitleNewGame" type="button" class="btn title-tab-btn">Nuevo Juego</button>
+        <button id="tabTitleImport" type="button" class="btn title-tab-btn">Importar Partida (.json)</button>
+      </div>
+    </header>
+
+    <!-- Panel Continuar (3 Ranuras independientes) -->
+    <section id="panelContinue" class="title-panel">
+      <h2>Ranuras de Guardado (LocalStorage)</h2>
+      <div id="slotContinueGrid" class="slot-grid"></div>
+    </section>
+
+    <!-- Panel Nuevo Juego (Ash / Gary / Leaf) -->
+    <section id="panelNewGame" class="title-panel hidden">
+      <h2>Nuevo Juego — Elige Protagonista y Campaña</h2>
+      <div id="protagonistSelector" class="protagonist-grid"></div>
+
+      <div class="newgame-form-grid">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div class="field-group">
+            <label for="inputPlayerName">Nombre del Entrenador</label>
+            <input id="inputPlayerName" type="text" class="input-text" maxlength="14" value="Ash" placeholder="Tu nombre" />
+          </div>
+
+          <div class="field-group">
+            <label for="newGameSlotSelect">Ranura de Guardado Destino</label>
+            <select id="newGameSlotSelect" class="input-select">
+              <option value="1">Ranura 1</option>
+              <option value="2">Ranura 2</option>
+              <option value="3">Ranura 3</option>
+            </select>
+          </div>
+
+          <div id="overwriteWarning" class="alert-box hidden"></div>
+
+          <button id="btnStartNewGame" type="button" class="btn btn-primary">
+            Comenzar Aventura (₽5,000 iniciales)
+          </button>
+        </div>
+
+        <div id="starterSection" style="display:flex; flex-direction:column; gap:10px;">
+          <label style="font-size:0.84rem; font-weight:600; color:#cbd5e1;">Pokémon Inicial</label>
+          <div id="ashNoticeBox" class="alert-box">
+            <strong>Modo Anime (Ash):</strong> Llegas tarde al laboratorio y recibes a <strong>Pikachu (Nv. 5)</strong>. Tu rival <strong>Gary</strong> empieza con <strong>Eevee</strong>.
+          </div>
+          <div id="starterPickerGrid" class="starter-grid hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Panel Importar .json -->
+    <section id="panelImportSave" class="title-panel hidden">
+      <h2>Importar Partida Respaldada (.json)</h2>
+      <p style="margin:0 0 12px; color:#cbd5e1; font-size:0.9rem;">
+        Carga un archivo <code>.json</code> exportado desde el menú de pausa hacia cualquiera de las 3 ranuras independientes.
+      </p>
+      <div class="newgame-form-grid">
+        <div class="field-group">
+          <label for="selectImportSlot">Ranura Destino</label>
+          <select id="selectImportSlot" class="input-select">
+            <option value="1">Ranura 1</option>
+            <option value="2">Ranura 2</option>
+            <option value="3">Ranura 3</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="inputImportFile">Archivo de Guardado (.json)</label>
+          <input id="inputImportFile" type="file" accept=".json,application/json" class="input-text" />
+        </div>
+      </div>
+      <div id="importFeedback" class="alert-box hidden" style="margin-top:12px;"></div>
+    </section>
+  </main>
+
+  <!-- ================= PANTALLA DE JUEGO / OVERWORLD ================= -->
+  <section id="screenGame" class="game-shell hidden">
+    <header class="game-hud">
+      <div class="hud-stats">
+        <span id="hudMapName" class="hud-pill">Lab. Prof. Oak</span>
+        <span id="hudTimeBadge" class="hud-pill">☀️ Día</span>
+        <span id="hudMoney" class="hud-pill gold">₽5,000</span>
+        <span id="hudBadges" class="hud-pill">🏅 Medallas: 0/8</span>
+        <span id="hudSymbols" class="hud-pill">🏆 Frontera: 0/7</span>
+      </div>
+      <div class="hud-controls">
+        <select id="selectTimeOverride" class="input-select" style="padding:5px 8px; font-size:0.82rem;" title="Control de horario">
+          <option value="auto">Hora: Auto</option>
+          <option value="day">☀️ Día</option>
+          <option value="evening">🌇 Tarde</option>
+          <option value="night">🌙 Noche</option>
+        </select>
+        <button id="btnOpenTravel" type="button" class="btn btn-sm btn-gold">🗺️ Vuelo / Eventos</button>
+        <button id="btnToggleBike" type="button" class="btn btn-sm">🚲 Bici</button>
+        <button id="btnInteractAction" type="button" class="btn btn-sm btn-success">💬 Hablar (Enter)</button>
+        <button id="btnOpenPauseMenu" type="button" class="btn btn-sm btn-primary">☰ Menú (Esc)</button>
+      </div>
+    </header>
+
+    <div class="viewport-stage">
+      <canvas id="overworldCanvas" class="pixelated" width="256" height="192"></canvas>
+      <div id="overworldToast" class="overworld-toast hidden"></div>
+
+      <!-- Caja de diálogo GBA -->
+      <div id="dialogueOverlay" class="dialogue-overlay hidden">
+        <div class="gba-dialogue-box">
+          <div class="dialogue-header">
+            <span id="dialogueSpeaker" class="dialogue-speaker">Prof. Oak</span>
+            <span style="font-size:0.75rem; color:#475569;">Enter / Espacio / Clic</span>
+          </div>
+          <p id="dialogueText" class="dialogue-text"></p>
+          <div id="dialogueChoices" class="dialogue-actions">
+            <button id="btnDialogueNext" type="button" class="btn btn-sm btn-primary">Continuar ▼</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="controls-footer">
+      <div class="key-hints">
+        <span><kbd>WASD</kbd> / <kbd>Flechas</kbd> Mover</span>
+        <span><kbd>Shift</kbd> Correr</span>
+        <span><kbd>B</kbd> Bicicleta</span>
+        <span><kbd>Enter</kbd> / <kbd>Espacio</kbd> Hablar / Tienda / Curar</span>
+        <span><kbd>Esc</kbd> Menú de Pausa</span>
+      </div>
+      <div class="touch-controls">
+        <div class="dpad-grid">
+          <span></span>
+          <button id="btnDpadUp" type="button" class="dpad-btn">▲</button>
+          <span></span>
+          <button id="btnDpadLeft" type="button" class="dpad-btn">◀</button>
+          <button id="btnDpadDown" type="button" class="dpad-btn">▼</button>
+          <button id="btnDpadRight" type="button" class="dpad-btn">▶</button>
+        </div>
+        <div style="display:flex; gap:6px;">
+          <button id="btnTouchA" type="button" class="btn btn-sm btn-success">A</button>
+          <button id="btnTouchRun" type="button" class="btn btn-sm">Correr</button>
+          <button id="btnTouchMenu" type="button" class="btn btn-sm btn-primary">Menú</button>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ================= MODAL VIAJE RÁPIDO / EVENTOS KANTO ================= -->
+  <div id="travelModal" class="modal-backdrop hidden">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h2>🗺️ Destinos de Kanto y Eventos Activos</h2>
+        <button id="btnCloseTravel" type="button" class="btn btn-sm">Cerrar</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin:0; font-size:0.88rem; color:#cbd5e1;">
+          Explora a pie por rutas y edificios o vuela al instante a cualquier Gimnasio, Evento Anime, Grand Prix P1, Zona Safari, Meseta Añil o As de la Frontera.
+        </p>
+        <div id="travelHubsList" class="cards-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL TIENDA POKÉMON ================= -->
+  <div id="shopModal" class="modal-backdrop hidden">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h2>🛒 Tienda Pokémon — Artículos y Piedras / Cordón Unión</h2>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span id="shopPlayerMoney" class="hud-pill gold">₽5,000</span>
+          <button id="btnCloseShop" type="button" class="btn btn-sm">Salir</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div id="shopFeedback" class="alert-box hidden"></div>
+        <div id="shopCatalogList" class="cards-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL CAJA DEL PC ================= -->
+  <div id="pcModal" class="modal-backdrop hidden">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h2>💻 Sistema de Almacenamiento Pokémon (PC de Bill)</h2>
+        <button id="btnClosePc" type="button" class="btn btn-sm">Desconectar</button>
+      </div>
+      <div class="modal-body">
+        <div id="pcSelectedInfo" class="alert-box">
+          Haz clic en un Pokémon de la Caja para pasarlo al equipo (o selecciona primero uno de tu equipo para intercambiar).
+        </div>
+        <div class="newgame-form-grid">
+          <div>
+            <h3 style="margin:0 0 8px; font-size:0.98rem;">Equipo Activo (<span id="pcPartyCount">0</span>/6)</h3>
+            <div id="pcPartyList" style="display:flex; flex-direction:column; gap:8px;"></div>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px; font-size:0.98rem;">Caja del PC (<span id="pcBoxCount">0</span>)</h3>
+            <div id="pcBoxList" style="display:flex; flex-direction:column; gap:8px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MENÚ DE PAUSA INTEGRADO ================= -->
+  <div id="pauseOverlay" class="modal-backdrop hidden">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h2>☰ Menú de Pausa</h2>
+        <div style="display:flex; gap:8px;">
+          <button id="btnReturnTitle" type="button" class="btn btn-sm btn-ghost">Pantalla de Título</button>
+          <button id="btnClosePause" type="button" class="btn btn-sm btn-primary">Volver (Esc)</button>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <button id="pauseTabPokedex" type="button" class="btn btn-sm tab-btn active">📘 Pokédex</button>
+        <button id="pauseTabParty" type="button" class="btn btn-sm tab-btn">⚡ Equipo</button>
+        <button id="pauseTabBag" type="button" class="btn btn-sm tab-btn">🎒 Mochila</button>
+        <button id="pauseTabCard" type="button" class="btn btn-sm tab-btn">🪪 Ficha y Frontera</button>
+        <button id="pauseTabSave" type="button" class="btn btn-sm tab-btn">💾 Guardar / Exportar</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Pokédex -->
+        <section id="pauseViewPokedex">
+          <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px;">
+            <span id="pokedexSummary" class="hud-pill">Vistos: 0/151 · Capturados: 0/151</span>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <select id="pokedexFilterSelect" class="input-select" style="padding:6px 10px;">
+                <option value="all">Todas (151)</option>
+                <option value="captured">Solo Capturados</option>
+                <option value="seen">Solo Vistos</option>
+              </select>
+              <input id="pokedexSearchInput" type="search" class="input-text" style="padding:6px 10px; width:190px;" placeholder="Buscar Pokémon o #ID..." />
+            </div>
+          </div>
+          <div id="pokedexGrid" class="cards-grid"></div>
+        </section>
+
+        <!-- Equipo Pokémon -->
+        <section id="pauseViewParty" class="hidden">
+          <div id="partyActionFeedback" class="alert-box hidden" style="margin-bottom:10px;"></div>
+          <div id="pausePartyList" class="cards-grid"></div>
+        </section>
+
+        <!-- Mochila -->
+        <section id="pauseViewBag" class="hidden">
+          <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:10px;">
+            <label for="bagTargetSelect" style="font-size:0.86rem; font-weight:600;">Objetivo en tu Equipo:</label>
+            <select id="bagTargetSelect" class="input-select"></select>
+          </div>
+          <div id="bagActionFeedback" class="alert-box hidden" style="margin-bottom:10px;"></div>
+          <div id="pauseBagList" class="cards-grid"></div>
+        </section>
+
+        <!-- Ficha de Entrenador y Frontera -->
+        <section id="pauseViewCard" class="hidden" style="display:flex; flex-direction:column; gap:14px;">
+          <div id="trainerCardHeader" class="info-card"></div>
+          <div>
+            <h3 style="margin:0 0 8px; font-size:0.96rem; color:#fef08a;">Medallas de Kanto</h3>
+            <div id="trainerCardBadges" class="badges-grid"></div>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px; font-size:0.96rem; color:#fef08a;">Progreso de Campaña y Eventos</h3>
+            <div id="trainerCardStoryFlags" class="badges-grid"></div>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px; font-size:0.96rem; color:#fef08a;">Batalla de la Frontera (7 Ases en Kanto)</h3>
+            <div id="trainerCardFrontier" class="cards-grid"></div>
+          </div>
+        </section>
+
+        <!-- Guardar / Exportar -->
+        <section id="pauseViewSave" class="hidden" style="display:flex; flex-direction:column; gap:14px;">
+          <div id="saveFeedback" class="alert-box hidden"></div>
+          <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;">
+            <span style="font-size:0.9rem; color:#cbd5e1;">Guarda en cualquiera de las 3 ranuras o descarga tu respaldo portátil <code>.json</code>.</span>
+            <button id="btnExportSaveJson" type="button" class="btn btn-gold">⬇️ Exportar Partida (.json)</button>
+          </div>
+          <div id="pauseSaveSlots" class="slot-grid"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= ARENA DE COMBATE INTEGRADA ================= -->
+  <div id="battleOverlay" class="modal-backdrop hidden">
+    <div class="modal-window battle-window">
+      <div class="modal-header">
+        <h2>⚔️ Combate Pokémon</h2>
+        <span id="battleSafariHint" class="hud-pill hidden"></span>
+      </div>
+      <div class="modal-body">
+        <div id="battleBannerText" class="battle-banner"></div>
+
+        <div class="battle-arena-scene">
+          <!-- HUD Enemigo -->
+          <div class="battle-hud-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:6px;">
+              <strong id="battleEnemyName">Rival</strong>
+              <span id="battleEnemyLevel" style="font-size:0.84rem; font-weight:700;">Nv. 5</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px; margin:4px 0;">
+              <span id="battleEnemyStatus" class="type-pill hidden"></span>
+              <span id="battleEnemyCaughtBadge" class="type-pill hidden" style="background:#16a34a;">CAPTURADO</span>
+            </div>
+            <div class="hp-bar-track">
+              <div id="battleEnemyHpFill" class="hp-bar-fill" style="width:100%;"></div>
+            </div>
+            <div id="battleEnemyHpText" style="font-size:0.78rem; text-align:right; margin-top:2px;">--/-- PS</div>
+          </div>
+
+          <!-- Sprite Enemigo -->
+          <div class="battle-sprite-stage">
+            <img id="battleEnemySprite" class="pixelated" src="assets/sprites/pokemon/025_front.png" alt="Enemigo" />
+            <div class="battle-platform"></div>
+          </div>
+
+          <!-- Sprite Jugador -->
+          <div class="battle-sprite-stage">
+            <img id="battlePlayerSprite" class="pixelated" src="assets/sprites/pokemon/025_back.png" alt="Aliado" />
+            <div class="battle-platform"></div>
+          </div>
+
+          <!-- HUD Jugador -->
+          <div class="battle-hud-card" style="align-self:end;">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:6px;">
+              <strong id="battlePlayerName">Pikachu</strong>
+              <span id="battlePlayerLevel" style="font-size:0.84rem; font-weight:700;">Nv. 5</span>
+            </div>
+            <div style="margin:4px 0;">
+              <span id="battlePlayerStatus" class="type-pill hidden"></span>
+            </div>
+            <div class="hp-bar-track">
+              <div id="battlePlayerHpFill" class="hp-bar-fill" style="width:100%;"></div>
+            </div>
+            <div id="battlePlayerHpText" style="font-size:0.78rem; text-align:right; margin-top:2px;">--/-- PS</div>
+            <div class="hp-bar-track" style="height:5px; margin-top:4px;">
+              <div id="battlePlayerExpFill" class="exp-bar-fill" style="width:0%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="battleForcedNotice" class="alert-box error hidden">
+          Tu Pokémon cayó debilitado. Selecciona otro Pokémon de tu equipo para continuar.
+        </div>
+
+        <div class="battle-controls-grid">
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; flex-wrap:wrap; gap:6px;">
+              <button id="btnBattleModeFight" type="button" class="btn btn-sm btn-primary">⚔️ Luchar</button>
+              <button id="btnBattleModeBag" type="button" class="btn btn-sm btn-gold">🎒 Mochila</button>
+              <button id="btnBattleModeSwitch" type="button" class="btn btn-sm">🔄 Pokémon</button>
+              <button id="btnBattleRun" type="button" class="btn btn-sm btn-ghost">🏃 Huir</button>
+            </div>
+            <div id="battleMovesGrid" class="moves-grid"></div>
+            <div id="battleBagPanel" class="cards-grid hidden"></div>
+            <div id="battleSwitchPanel" class="cards-grid hidden"></div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div id="battleLog" class="battle-log-box"></div>
+            <div id="battleFinishBar" class="hidden" style="display:flex; justify-content:flex-end;">
+              <button id="btnBattleContinue" type="button" class="btn btn-success">Continuar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/game/mainApp.js"></script>
+</body>
+</html>
