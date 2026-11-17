@@ -1,0 +1,4357 @@
+{
+  "count": 256,
+  "maps": [
+    {
+      "id": "MAP_CELADON_CITY",
+      "name": "CeladonCity",
+      "displayName": "Celadon City",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 60,
+      "height": 40,
+      "tileset": "general__celadoncity",
+      "defaultSpawn": {
+        "x": 34,
+        "y": 22
+      },
+      "hasWildEncounters": true,
+      "warpCount": 13,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_CERULEAN_CITY",
+      "name": "CeruleanCity",
+      "displayName": "Cerulean City",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__ceruleancity",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 12
+      },
+      "hasWildEncounters": true,
+      "warpCount": 14,
+      "connectionCount": 4
+    },
+    {
+      "id": "MAP_CINNABAR_ISLAND",
+      "name": "CinnabarIsland",
+      "displayName": "Cinnabar Island",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 20,
+      "tileset": "general__cinnabarisland",
+      "defaultSpawn": {
+        "x": 8,
+        "y": 3
+      },
+      "hasWildEncounters": true,
+      "warpCount": 5,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY",
+      "name": "FuchsiaCity",
+      "displayName": "Fuchsia City",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__fuchsiacity",
+      "defaultSpawn": {
+        "x": 24,
+        "y": 6
+      },
+      "hasWildEncounters": true,
+      "warpCount": 11,
+      "connectionCount": 3
+    },
+    {
+      "id": "MAP_INDIGO_PLATEAU_EXTERIOR",
+      "name": "IndigoPlateau_Exterior",
+      "displayName": "Indigo Plateau \u2014 Exterior",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 20,
+      "tileset": "general__indigoplateau",
+      "defaultSpawn": {
+        "x": 11,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 1
+    },
+    {
+      "id": "MAP_LAVENDER_TOWN",
+      "name": "LavenderTown",
+      "displayName": "Lavender Town",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 20,
+      "tileset": "general__lavendertown",
+      "defaultSpawn": {
+        "x": 18,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 6,
+      "connectionCount": 3
+    },
+    {
+      "id": "MAP_PALLET_TOWN",
+      "name": "PalletTown",
+      "displayName": "Pallet Town",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 20,
+      "tileset": "general__pallettown",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": true,
+      "warpCount": 3,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_PEWTER_CITY",
+      "name": "PewterCity",
+      "displayName": "Pewter City",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__pewtercity",
+      "defaultSpawn": {
+        "x": 17,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 7,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_SAFFRON_CITY",
+      "name": "SaffronCity",
+      "displayName": "Saffron City",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 66,
+      "height": 55,
+      "tileset": "general__saffroncity",
+      "defaultSpawn": {
+        "x": 33,
+        "y": 31
+      },
+      "hasWildEncounters": false,
+      "warpCount": 15,
+      "connectionCount": 4
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_CONNECTION",
+      "name": "SaffronCity_Connection",
+      "displayName": "Saffron City \u2014 Connection",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__saffroncity",
+      "defaultSpawn": {
+        "x": 24,
+        "y": 24
+      },
+      "hasWildEncounters": false,
+      "warpCount": 0,
+      "connectionCount": 4
+    },
+    {
+      "id": "MAP_VERMILION_CITY",
+      "name": "VermilionCity",
+      "displayName": "Vermilion City",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__vermilioncity",
+      "defaultSpawn": {
+        "x": 22,
+        "y": 34
+      },
+      "hasWildEncounters": true,
+      "warpCount": 10,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_VIRIDIAN_CITY",
+      "name": "ViridianCity",
+      "displayName": "Viridian City",
+      "mapType": "MAP_TYPE_TOWN",
+      "environment": "outdoor",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__viridiancity",
+      "defaultSpawn": {
+        "x": 26,
+        "y": 27
+      },
+      "hasWildEncounters": true,
+      "warpCount": 5,
+      "connectionCount": 3
+    },
+    {
+      "id": "MAP_ROUTE1",
+      "name": "Route1",
+      "displayName": "Route 1",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 40,
+      "tileset": "general__pallettown",
+      "defaultSpawn": {
+        "x": 12,
+        "y": 19
+      },
+      "hasWildEncounters": true,
+      "warpCount": 0,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE10",
+      "name": "Route10",
+      "displayName": "Route 10",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 80,
+      "tileset": "general__lavendertown",
+      "defaultSpawn": {
+        "x": 8,
+        "y": 19
+      },
+      "hasWildEncounters": true,
+      "warpCount": 5,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE11",
+      "name": "Route11",
+      "displayName": "Route 11",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 72,
+      "height": 20,
+      "tileset": "general__vermilioncity",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 7
+      },
+      "hasWildEncounters": true,
+      "warpCount": 3,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE12",
+      "name": "Route12",
+      "displayName": "Route 12",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 120,
+      "tileset": "general__lavendertown",
+      "defaultSpawn": {
+        "x": 12,
+        "y": 87
+      },
+      "hasWildEncounters": true,
+      "warpCount": 4,
+      "connectionCount": 3
+    },
+    {
+      "id": "MAP_ROUTE13",
+      "name": "Route13",
+      "displayName": "Route 13",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 72,
+      "height": 20,
+      "tileset": "general__lavendertown",
+      "defaultSpawn": {
+        "x": 35,
+        "y": 10
+      },
+      "hasWildEncounters": true,
+      "warpCount": 0,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE14",
+      "name": "Route14",
+      "displayName": "Route 14",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 60,
+      "tileset": "general__lavendertown",
+      "defaultSpawn": {
+        "x": 11,
+        "y": 30
+      },
+      "hasWildEncounters": true,
+      "warpCount": 0,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE15",
+      "name": "Route15",
+      "displayName": "Route 15",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 72,
+      "height": 20,
+      "tileset": "general__fuchsiacity",
+      "defaultSpawn": {
+        "x": 9,
+        "y": 11
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE16",
+      "name": "Route16",
+      "displayName": "Route 16",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 48,
+      "height": 20,
+      "tileset": "general__celadoncity",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 6
+      },
+      "hasWildEncounters": true,
+      "warpCount": 5,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE17",
+      "name": "Route17",
+      "displayName": "Route 17",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 160,
+      "tileset": "general__celadoncity",
+      "defaultSpawn": {
+        "x": 12,
+        "y": 80
+      },
+      "hasWildEncounters": true,
+      "warpCount": 0,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE18",
+      "name": "Route18",
+      "displayName": "Route 18",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 60,
+      "height": 20,
+      "tileset": "general__celadoncity",
+      "defaultSpawn": {
+        "x": 41,
+        "y": 9
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE19",
+      "name": "Route19",
+      "displayName": "Route 19",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 60,
+      "tileset": "general__fuchsiacity",
+      "defaultSpawn": {
+        "x": 12,
+        "y": 13
+      },
+      "hasWildEncounters": true,
+      "warpCount": 0,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE2",
+      "name": "Route2",
+      "displayName": "Route 2",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 80,
+      "tileset": "general__viridiancity",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 13
+      },
+      "hasWildEncounters": true,
+      "warpCount": 10,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE20",
+      "name": "Route20",
+      "displayName": "Route 20",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 120,
+      "height": 20,
+      "tileset": "general__cinnabarisland",
+      "defaultSpawn": {
+        "x": 60,
+        "y": 8
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE21_NORTH",
+      "name": "Route21_North",
+      "displayName": "Route 21 (North)",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 50,
+      "tileset": "general__pallettown",
+      "defaultSpawn": {
+        "x": 14,
+        "y": 25
+      },
+      "hasWildEncounters": true,
+      "warpCount": 0,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE21_SOUTH",
+      "name": "Route21_South",
+      "displayName": "Route 21 (South)",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 50,
+      "tileset": "general__cinnabarisland",
+      "defaultSpawn": {
+        "x": 11,
+        "y": 25
+      },
+      "hasWildEncounters": true,
+      "warpCount": 0,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE22",
+      "name": "Route22",
+      "displayName": "Route 22",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 48,
+      "height": 24,
+      "tileset": "general__viridiancity",
+      "defaultSpawn": {
+        "x": 8,
+        "y": 6
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE23",
+      "name": "Route23",
+      "displayName": "Route 23",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 160,
+      "tileset": "general__indigoplateau",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 28
+      },
+      "hasWildEncounters": true,
+      "warpCount": 4,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE24",
+      "name": "Route24",
+      "displayName": "Route 24",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 40,
+      "tileset": "general__ceruleancity",
+      "defaultSpawn": {
+        "x": 12,
+        "y": 20
+      },
+      "hasWildEncounters": true,
+      "warpCount": 0,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE25",
+      "name": "Route25",
+      "displayName": "Route 25",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 72,
+      "height": 20,
+      "tileset": "general__ceruleancity",
+      "defaultSpawn": {
+        "x": 51,
+        "y": 5
+      },
+      "hasWildEncounters": true,
+      "warpCount": 1,
+      "connectionCount": 1
+    },
+    {
+      "id": "MAP_ROUTE3",
+      "name": "Route3",
+      "displayName": "Route 3",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 84,
+      "height": 20,
+      "tileset": "general__pewtercity",
+      "defaultSpawn": {
+        "x": 42,
+        "y": 10
+      },
+      "hasWildEncounters": true,
+      "warpCount": 0,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE4",
+      "name": "Route4",
+      "displayName": "Route 4",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 108,
+      "height": 20,
+      "tileset": "general__ceruleancity",
+      "defaultSpawn": {
+        "x": 19,
+        "y": 5
+      },
+      "hasWildEncounters": true,
+      "warpCount": 3,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE5",
+      "name": "Route5",
+      "displayName": "Route 5",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__ceruleancity",
+      "defaultSpawn": {
+        "x": 31,
+        "y": 32
+      },
+      "hasWildEncounters": true,
+      "warpCount": 4,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE6",
+      "name": "Route6",
+      "displayName": "Route 6",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 40,
+      "tileset": "general__vermilioncity",
+      "defaultSpawn": {
+        "x": 19,
+        "y": 14
+      },
+      "hasWildEncounters": true,
+      "warpCount": 3,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE7",
+      "name": "Route7",
+      "displayName": "Route 7",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 24,
+      "height": 20,
+      "tileset": "general__celadoncity",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 15
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE8",
+      "name": "Route8",
+      "displayName": "Route 8",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 72,
+      "height": 20,
+      "tileset": "general__lavendertown",
+      "defaultSpawn": {
+        "x": 13,
+        "y": 5
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_ROUTE9",
+      "name": "Route9",
+      "displayName": "Route 9",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 72,
+      "height": 20,
+      "tileset": "general__ceruleancity",
+      "defaultSpawn": {
+        "x": 35,
+        "y": 10
+      },
+      "hasWildEncounters": true,
+      "warpCount": 0,
+      "connectionCount": 2
+    },
+    {
+      "id": "MAP_SAFARI_ZONE_CENTER",
+      "name": "SafariZone_Center",
+      "displayName": "Safari Zone Center",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 51,
+      "height": 36,
+      "tileset": "general__fuchsiacity",
+      "defaultSpawn": {
+        "x": 25,
+        "y": 30
+      },
+      "hasWildEncounters": true,
+      "warpCount": 13,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFARI_ZONE_EAST",
+      "name": "SafariZone_East",
+      "displayName": "Safari Zone East",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 54,
+      "height": 35,
+      "tileset": "general__fuchsiacity",
+      "defaultSpawn": {
+        "x": 8,
+        "y": 9
+      },
+      "hasWildEncounters": true,
+      "warpCount": 7,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFARI_ZONE_NORTH",
+      "name": "SafariZone_North",
+      "displayName": "Safari Zone North",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 57,
+      "height": 40,
+      "tileset": "general__fuchsiacity",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 34
+      },
+      "hasWildEncounters": true,
+      "warpCount": 13,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFARI_ZONE_WEST",
+      "name": "SafariZone_West",
+      "displayName": "Safari Zone West",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 48,
+      "height": 36,
+      "tileset": "general__fuchsiacity",
+      "defaultSpawn": {
+        "x": 30,
+        "y": 5
+      },
+      "hasWildEncounters": true,
+      "warpCount": 11,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VIRIDIAN_FOREST",
+      "name": "ViridianForest",
+      "displayName": "Viridian Forest",
+      "mapType": "MAP_TYPE_ROUTE",
+      "environment": "outdoor",
+      "width": 54,
+      "height": 69,
+      "tileset": "general__viridianforest",
+      "defaultSpawn": {
+        "x": 29,
+        "y": 62
+      },
+      "hasWildEncounters": true,
+      "warpCount": 6,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CAVE_1F",
+      "name": "CeruleanCave_1F",
+      "displayName": "Cerulean Cave 1F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 40,
+      "height": 23,
+      "tileset": "general__ceruleancave",
+      "defaultSpawn": {
+        "x": 33,
+        "y": 21
+      },
+      "hasWildEncounters": true,
+      "warpCount": 8,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CAVE_2F",
+      "name": "CeruleanCave_2F",
+      "displayName": "Cerulean Cave 2F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 40,
+      "height": 23,
+      "tileset": "general__ceruleancave",
+      "defaultSpawn": {
+        "x": 33,
+        "y": 4
+      },
+      "hasWildEncounters": true,
+      "warpCount": 6,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CAVE_B1F",
+      "name": "CeruleanCave_B1F",
+      "displayName": "Cerulean Cave B1F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 40,
+      "height": 23,
+      "tileset": "general__ceruleancave",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 7
+      },
+      "hasWildEncounters": true,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_DIGLETTS_CAVE_B1F",
+      "name": "DiglettsCave_B1F",
+      "displayName": "Diglett's Cave B1F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 85,
+      "height": 80,
+      "tileset": "general__diglettscave",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 3
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_DIGLETTS_CAVE_NORTH_ENTRANCE",
+      "name": "DiglettsCave_NorthEntrance",
+      "displayName": "Digletts Cave \u2014 North Entrance",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 10,
+      "height": 8,
+      "tileset": "general__diglettscave",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 4
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_DIGLETTS_CAVE_SOUTH_ENTRANCE",
+      "name": "DiglettsCave_SouthEntrance",
+      "displayName": "Digletts Cave \u2014 South Entrance",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 10,
+      "height": 8,
+      "tileset": "general__diglettscave",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_MT_MOON_1F",
+      "name": "MtMoon_1F",
+      "displayName": "Mt. Moon 1F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__cave",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 6
+      },
+      "hasWildEncounters": true,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_MT_MOON_B1F",
+      "name": "MtMoon_B1F",
+      "displayName": "Mt. Moon B1F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 49,
+      "height": 40,
+      "tileset": "general__cave",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 3
+      },
+      "hasWildEncounters": true,
+      "warpCount": 8,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_MT_MOON_B2F",
+      "name": "MtMoon_B2F",
+      "displayName": "Mt. Moon B2F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__cave",
+      "defaultSpawn": {
+        "x": 25,
+        "y": 21
+      },
+      "hasWildEncounters": true,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROCK_TUNNEL_1F",
+      "name": "RockTunnel_1F",
+      "displayName": "Rock Tunnel 1F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__rocktunnel",
+      "defaultSpawn": {
+        "x": 17,
+        "y": 2
+      },
+      "hasWildEncounters": true,
+      "warpCount": 6,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROCK_TUNNEL_B1F",
+      "name": "RockTunnel_B1F",
+      "displayName": "Rock Tunnel B1F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 48,
+      "height": 40,
+      "tileset": "general__rocktunnel",
+      "defaultSpawn": {
+        "x": 38,
+        "y": 28
+      },
+      "hasWildEncounters": true,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SEAFOAM_ISLANDS_1F",
+      "name": "SeafoamIslands_1F",
+      "displayName": "Seafoam Islands 1F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 38,
+      "height": 24,
+      "tileset": "general__seafoamislands",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 6
+      },
+      "hasWildEncounters": true,
+      "warpCount": 7,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SEAFOAM_ISLANDS_B1F",
+      "name": "SeafoamIslands_B1F",
+      "displayName": "Seafoam Islands B1F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 38,
+      "height": 23,
+      "tileset": "general__seafoamislands",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 6
+      },
+      "hasWildEncounters": true,
+      "warpCount": 11,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SEAFOAM_ISLANDS_B2F",
+      "name": "SeafoamIslands_B2F",
+      "displayName": "Seafoam Islands B2F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 38,
+      "height": 24,
+      "tileset": "general__seafoamislands",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 17
+      },
+      "hasWildEncounters": true,
+      "warpCount": 11,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SEAFOAM_ISLANDS_B3F",
+      "name": "SeafoamIslands_B3F",
+      "displayName": "Seafoam Islands B3F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 38,
+      "height": 24,
+      "tileset": "general__seafoamislands",
+      "defaultSpawn": {
+        "x": 8,
+        "y": 14
+      },
+      "hasWildEncounters": true,
+      "warpCount": 9,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SEAFOAM_ISLANDS_B4F",
+      "name": "SeafoamIslands_B4F",
+      "displayName": "Seafoam Islands B4F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 38,
+      "height": 24,
+      "tileset": "general__seafoamislands",
+      "defaultSpawn": {
+        "x": 15,
+        "y": 9
+      },
+      "hasWildEncounters": true,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VICTORY_ROAD_1F",
+      "name": "VictoryRoad_1F",
+      "displayName": "Victory Road 1F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 48,
+      "height": 22,
+      "tileset": "general__cave",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 2
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VICTORY_ROAD_2F",
+      "name": "VictoryRoad_2F",
+      "displayName": "Victory Road 2F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 51,
+      "height": 22,
+      "tileset": "general__cave",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 9
+      },
+      "hasWildEncounters": true,
+      "warpCount": 9,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VICTORY_ROAD_3F",
+      "name": "VictoryRoad_3F",
+      "displayName": "Victory Road 3F",
+      "mapType": "MAP_TYPE_UNDERGROUND",
+      "environment": "cave",
+      "width": 45,
+      "height": 22,
+      "tileset": "general__cave",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 2
+      },
+      "hasWildEncounters": true,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_CONDOMINIUMS_1F",
+      "name": "CeladonCity_Condominiums_1F",
+      "displayName": "Celadon City \u2014 Condominiums \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 20,
+      "tileset": "building__condominiums",
+      "defaultSpawn": {
+        "x": 11,
+        "y": 19
+      },
+      "hasWildEncounters": false,
+      "warpCount": 6,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_CONDOMINIUMS_2F",
+      "name": "CeladonCity_Condominiums_2F",
+      "displayName": "Celadon City \u2014 Condominiums \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 20,
+      "tileset": "building__condominiums",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_CONDOMINIUMS_3F",
+      "name": "CeladonCity_Condominiums_3F",
+      "displayName": "Celadon City \u2014 Condominiums \u2014 3F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 20,
+      "tileset": "building__condominiums",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_CONDOMINIUMS_ROOF",
+      "name": "CeladonCity_Condominiums_Roof",
+      "displayName": "Celadon City \u2014 Condominiums \u2014 Roof",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 14,
+      "height": 23,
+      "tileset": "building__condominiums",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_CONDOMINIUMS_ROOF_ROOM",
+      "name": "CeladonCity_Condominiums_RoofRoom",
+      "displayName": "Celadon City \u2014 Condominiums \u2014 Roof Room",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 10,
+      "height": 9,
+      "tileset": "building__school",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
+      "name": "CeladonCity_DepartmentStore_1F",
+      "displayName": "Celadon City \u2014 Department Store \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 16,
+      "tileset": "building__departmentstore",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 15
+      },
+      "hasWildEncounters": false,
+      "warpCount": 8,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+      "name": "CeladonCity_DepartmentStore_2F",
+      "displayName": "Celadon City \u2014 Department Store \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 15,
+      "tileset": "building__departmentstore",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_DEPARTMENT_STORE_3F",
+      "name": "CeladonCity_DepartmentStore_3F",
+      "displayName": "Celadon City \u2014 Department Store \u2014 3F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 15,
+      "tileset": "building__departmentstore",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+      "name": "CeladonCity_DepartmentStore_4F",
+      "displayName": "Celadon City \u2014 Department Store \u2014 4F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 15,
+      "tileset": "building__departmentstore",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+      "name": "CeladonCity_DepartmentStore_5F",
+      "displayName": "Celadon City \u2014 Department Store \u2014 5F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 15,
+      "tileset": "building__departmentstore",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_DEPARTMENT_STORE_ELEVATOR",
+      "name": "CeladonCity_DepartmentStore_Elevator",
+      "displayName": "Celadon City \u2014 Department Store \u2014 Elevator",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 5,
+      "height": 7,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 5
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_DEPARTMENT_STORE_ROOF",
+      "name": "CeladonCity_DepartmentStore_Roof",
+      "displayName": "Celadon City \u2014 Department Store \u2014 Roof",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 19,
+      "height": 14,
+      "tileset": "building__departmentstore",
+      "defaultSpawn": {
+        "x": 15,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_GAME_CORNER",
+      "name": "CeladonCity_GameCorner",
+      "displayName": "Celadon City \u2014 Game Corner",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 18,
+      "height": 15,
+      "tileset": "building__gamecorner",
+      "defaultSpawn": {
+        "x": 9,
+        "y": 13
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_GAME_CORNER_PRIZE_ROOM",
+      "name": "CeladonCity_GameCorner_PrizeRoom",
+      "displayName": "Celadon City \u2014 Game Corner \u2014 Prize Room",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 9,
+      "height": 10,
+      "tileset": "building__gamecorner",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_GYM",
+      "name": "CeladonCity_Gym",
+      "displayName": "Celadon City \u2014 Gym",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 20,
+      "tileset": "building__celadongym",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 18
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_HOTEL",
+      "name": "CeladonCity_Hotel",
+      "displayName": "Celadon City \u2014 Hotel",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 17,
+      "height": 11,
+      "tileset": "building__restauranthotel",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 10
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_HOUSE1",
+      "name": "CeladonCity_House1",
+      "displayName": "Celadon City \u2014 House 1",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_POKEMON_CENTER_1F",
+      "name": "CeladonCity_PokemonCenter_1F",
+      "displayName": "Celadon City \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_POKEMON_CENTER_2F",
+      "name": "CeladonCity_PokemonCenter_2F",
+      "displayName": "Celadon City \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CELADON_CITY_RESTAURANT",
+      "name": "CeladonCity_Restaurant",
+      "displayName": "Celadon City \u2014 Restaurant",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 11,
+      "tileset": "building__restauranthotel",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CITY_BIKE_SHOP",
+      "name": "CeruleanCity_BikeShop",
+      "displayName": "Cerulean City \u2014 Bike Shop",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 10,
+      "tileset": "building__bikeshop",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CITY_GYM",
+      "name": "CeruleanCity_Gym",
+      "displayName": "Cerulean City \u2014 Gym",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 17,
+      "height": 20,
+      "tileset": "building__ceruleangym",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 18
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CITY_HOUSE1",
+      "name": "CeruleanCity_House1",
+      "displayName": "Cerulean City \u2014 House 1",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 10,
+      "height": 10,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CITY_HOUSE2",
+      "name": "CeruleanCity_House2",
+      "displayName": "Cerulean City \u2014 House 2",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 10,
+      "height": 9,
+      "tileset": "building__burgledhouse",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CITY_HOUSE3",
+      "name": "CeruleanCity_House3",
+      "displayName": "Cerulean City \u2014 House 3",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CITY_HOUSE4",
+      "name": "CeruleanCity_House4",
+      "displayName": "Cerulean City \u2014 House 4",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CITY_HOUSE5",
+      "name": "CeruleanCity_House5",
+      "displayName": "Cerulean City \u2014 House 5",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CITY_MART",
+      "name": "CeruleanCity_Mart",
+      "displayName": "Cerulean City \u2014 Mart",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__mart",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CITY_POKEMON_CENTER_1F",
+      "name": "CeruleanCity_PokemonCenter_1F",
+      "displayName": "Cerulean City \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CERULEAN_CITY_POKEMON_CENTER_2F",
+      "name": "CeruleanCity_PokemonCenter_2F",
+      "displayName": "Cerulean City \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CINNABAR_ISLAND_GYM",
+      "name": "CinnabarIsland_Gym",
+      "displayName": "Cinnabar Island \u2014 Gym",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 30,
+      "height": 25,
+      "tileset": "building__cinnabargym",
+      "defaultSpawn": {
+        "x": 24,
+        "y": 23
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CINNABAR_ISLAND_MART",
+      "name": "CinnabarIsland_Mart",
+      "displayName": "Cinnabar Island \u2014 Mart",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__mart",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CINNABAR_ISLAND_POKEMON_CENTER_1F",
+      "name": "CinnabarIsland_PokemonCenter_1F",
+      "displayName": "Cinnabar Island \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CINNABAR_ISLAND_POKEMON_CENTER_2F",
+      "name": "CinnabarIsland_PokemonCenter_2F",
+      "displayName": "Cinnabar Island \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CINNABAR_ISLAND_POKEMON_LAB_ENTRANCE",
+      "name": "CinnabarIsland_PokemonLab_Entrance",
+      "displayName": "Cinnabar Island \u2014 Pokemon Lab \u2014 Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 28,
+      "height": 11,
+      "tileset": "building__lab",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 6,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM",
+      "name": "CinnabarIsland_PokemonLab_ExperimentRoom",
+      "displayName": "Cinnabar Island \u2014 Pokemon Lab \u2014 Experiment Room",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 11,
+      "tileset": "building__lab",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CINNABAR_ISLAND_POKEMON_LAB_LOUNGE",
+      "name": "CinnabarIsland_PokemonLab_Lounge",
+      "displayName": "Cinnabar Island \u2014 Pokemon Lab \u2014 Lounge",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 11,
+      "tileset": "building__lab",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM",
+      "name": "CinnabarIsland_PokemonLab_ResearchRoom",
+      "displayName": "Cinnabar Island \u2014 Pokemon Lab \u2014 Research Room",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 11,
+      "tileset": "building__lab",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY_GYM",
+      "name": "FuchsiaCity_Gym",
+      "displayName": "Fuchsia City \u2014 Gym",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 23,
+      "tileset": "building__fuchsiagym",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 21
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY_HOUSE1",
+      "name": "FuchsiaCity_House1",
+      "displayName": "Fuchsia City \u2014 House 1",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY_HOUSE2",
+      "name": "FuchsiaCity_House2",
+      "displayName": "Fuchsia City \u2014 House 2",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 10,
+      "height": 10,
+      "tileset": "building__museum",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY_HOUSE3",
+      "name": "FuchsiaCity_House3",
+      "displayName": "Fuchsia City \u2014 House 3",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY_MART",
+      "name": "FuchsiaCity_Mart",
+      "displayName": "Fuchsia City \u2014 Mart",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__mart",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY_POKEMON_CENTER_1F",
+      "name": "FuchsiaCity_PokemonCenter_1F",
+      "displayName": "Fuchsia City \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY_POKEMON_CENTER_2F",
+      "name": "FuchsiaCity_PokemonCenter_2F",
+      "displayName": "Fuchsia City \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE",
+      "name": "FuchsiaCity_SafariZone_Entrance",
+      "displayName": "Fuchsia City \u2014 Safari Zone \u2014 Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 9,
+      "height": 9,
+      "tileset": "building__safarizonebuilding",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 1
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY_SAFARI_ZONE_OFFICE",
+      "name": "FuchsiaCity_SafariZone_Office",
+      "displayName": "Fuchsia City \u2014 Safari Zone \u2014 Office",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 20,
+      "height": 11,
+      "tileset": "building__safarizonebuilding",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_FUCHSIA_CITY_WARDENS_HOUSE",
+      "name": "FuchsiaCity_WardensHouse",
+      "displayName": "Fuchsia City \u2014 Wardens House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__museum",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 10
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+      "name": "IndigoPlateau_PokemonCenter_1F",
+      "displayName": "Indigo Plateau \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 25,
+      "height": 18,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 11,
+        "y": 16
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_2F",
+      "name": "IndigoPlateau_PokemonCenter_2F",
+      "displayName": "Indigo Plateau \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_LAVENDER_TOWN_HOUSE1",
+      "name": "LavenderTown_House1",
+      "displayName": "Lavender Town \u2014 House 1",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_LAVENDER_TOWN_HOUSE2",
+      "name": "LavenderTown_House2",
+      "displayName": "Lavender Town \u2014 House 2",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_LAVENDER_TOWN_MART",
+      "name": "LavenderTown_Mart",
+      "displayName": "Lavender Town \u2014 Mart",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__mart",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_LAVENDER_TOWN_POKEMON_CENTER_1F",
+      "name": "LavenderTown_PokemonCenter_1F",
+      "displayName": "Lavender Town \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_LAVENDER_TOWN_POKEMON_CENTER_2F",
+      "name": "LavenderTown_PokemonCenter_2F",
+      "displayName": "Lavender Town \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_LAVENDER_TOWN_VOLUNTEER_POKEMON_HOUSE",
+      "name": "LavenderTown_VolunteerPokemonHouse",
+      "displayName": "Lavender Town \u2014 Volunteer Pokemon House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 12,
+      "height": 9,
+      "tileset": "building__fanclubdaycare",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PALLET_TOWN_PLAYERS_HOUSE_1F",
+      "name": "PalletTown_PlayersHouse_1F",
+      "displayName": "Pallet Town \u2014 Players House \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 10,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+      "name": "PalletTown_PlayersHouse_2F",
+      "displayName": "Pallet Town \u2014 Players House \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 12,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+      "name": "PalletTown_ProfessorOaksLab",
+      "displayName": "Pallet Town \u2014 Professor Oaks Lab",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 14,
+      "tileset": "building__lab",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 12
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PALLET_TOWN_RIVALS_HOUSE",
+      "name": "PalletTown_RivalsHouse",
+      "displayName": "Pallet Town \u2014 Rivals House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 10,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PEWTER_CITY_GYM",
+      "name": "PewterCity_Gym",
+      "displayName": "Pewter City \u2014 Gym",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 16,
+      "tileset": "building__pewtergym",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 14
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PEWTER_CITY_HOUSE1",
+      "name": "PewterCity_House1",
+      "displayName": "Pewter City \u2014 House 1",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PEWTER_CITY_HOUSE2",
+      "name": "PewterCity_House2",
+      "displayName": "Pewter City \u2014 House 2",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PEWTER_CITY_MART",
+      "name": "PewterCity_Mart",
+      "displayName": "Pewter City \u2014 Mart",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__mart",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PEWTER_CITY_MUSEUM_1F",
+      "name": "PewterCity_Museum_1F",
+      "displayName": "Pewter City \u2014 Museum \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 28,
+      "height": 11,
+      "tileset": "building__museum",
+      "defaultSpawn": {
+        "x": 13,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 6,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PEWTER_CITY_MUSEUM_2F",
+      "name": "PewterCity_Museum_2F",
+      "displayName": "Pewter City \u2014 Museum \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 19,
+      "height": 10,
+      "tileset": "building__museum",
+      "defaultSpawn": {
+        "x": 11,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PEWTER_CITY_POKEMON_CENTER_1F",
+      "name": "PewterCity_PokemonCenter_1F",
+      "displayName": "Pewter City \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_PEWTER_CITY_POKEMON_CENTER_2F",
+      "name": "PewterCity_PokemonCenter_2F",
+      "displayName": "Pewter City \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+      "name": "PokemonLeague_AgathasRoom",
+      "displayName": "Pokemon League \u2014 Agathas Room",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 13,
+      "tileset": "building__pokemonleague",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 12
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_LEAGUE_BRUNOS_ROOM",
+      "name": "PokemonLeague_BrunosRoom",
+      "displayName": "Pokemon League \u2014 Brunos Room",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 13,
+      "tileset": "building__pokemonleague",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 12
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM",
+      "name": "PokemonLeague_ChampionsRoom",
+      "displayName": "Pokemon League \u2014 Champions Room",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 20,
+      "tileset": "building__pokemonleague",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 19
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_LEAGUE_HALL_OF_FAME",
+      "name": "PokemonLeague_HallOfFame",
+      "displayName": "Pokemon League \u2014 Hall Of Fame",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 13,
+      "tileset": "building__halloffame",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 12
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_LEAGUE_LANCES_ROOM",
+      "name": "PokemonLeague_LancesRoom",
+      "displayName": "Pokemon League \u2014 Lances Room",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 28,
+      "height": 24,
+      "tileset": "building__pokemonleague",
+      "defaultSpawn": {
+        "x": 23,
+        "y": 13
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_LEAGUE_LORELEIS_ROOM",
+      "name": "PokemonLeague_LoreleisRoom",
+      "displayName": "Pokemon League \u2014 Loreleis Room",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 13,
+      "tileset": "building__pokemonleague",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 12
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_MANSION_1F",
+      "name": "PokemonMansion_1F",
+      "displayName": "Pok\u00e9mon Mansion 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "cave",
+      "width": 38,
+      "height": 35,
+      "tileset": "building__pokemonmansion",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 33
+      },
+      "hasWildEncounters": true,
+      "warpCount": 10,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_MANSION_2F",
+      "name": "PokemonMansion_2F",
+      "displayName": "Pok\u00e9mon Mansion 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "cave",
+      "width": 38,
+      "height": 38,
+      "tileset": "building__pokemonmansion",
+      "defaultSpawn": {
+        "x": 9,
+        "y": 3
+      },
+      "hasWildEncounters": true,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_MANSION_3F",
+      "name": "PokemonMansion_3F",
+      "displayName": "Pok\u00e9mon Mansion 3F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "cave",
+      "width": 38,
+      "height": 35,
+      "tileset": "building__pokemonmansion",
+      "defaultSpawn": {
+        "x": 8,
+        "y": 3
+      },
+      "hasWildEncounters": true,
+      "warpCount": 8,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_MANSION_B1F",
+      "name": "PokemonMansion_B1F",
+      "displayName": "Pok\u00e9mon Mansion B1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "cave",
+      "width": 38,
+      "height": 35,
+      "tileset": "building__pokemonmansion",
+      "defaultSpawn": {
+        "x": 34,
+        "y": 29
+      },
+      "hasWildEncounters": true,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_TOWER_1F",
+      "name": "PokemonTower_1F",
+      "displayName": "Pokemon Tower \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 24,
+      "height": 20,
+      "tileset": "building__pokemontower",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 19
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_TOWER_2F",
+      "name": "PokemonTower_2F",
+      "displayName": "Pokemon Tower \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 24,
+      "height": 20,
+      "tileset": "building__pokemontower",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 10
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_TOWER_3F",
+      "name": "PokemonTower_3F",
+      "displayName": "Pok\u00e9mon Tower 3F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "cave",
+      "width": 24,
+      "height": 20,
+      "tileset": "building__pokemontower",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 10
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_TOWER_4F",
+      "name": "PokemonTower_4F",
+      "displayName": "Pok\u00e9mon Tower 4F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "cave",
+      "width": 24,
+      "height": 20,
+      "tileset": "building__pokemontower",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 10
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_TOWER_5F",
+      "name": "PokemonTower_5F",
+      "displayName": "Pok\u00e9mon Tower 5F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "cave",
+      "width": 24,
+      "height": 20,
+      "tileset": "building__pokemontower",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 10
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_TOWER_6F",
+      "name": "PokemonTower_6F",
+      "displayName": "Pok\u00e9mon Tower 6F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "cave",
+      "width": 24,
+      "height": 20,
+      "tileset": "building__pokemontower",
+      "defaultSpawn": {
+        "x": 11,
+        "y": 16
+      },
+      "hasWildEncounters": true,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POKEMON_TOWER_7F",
+      "name": "PokemonTower_7F",
+      "displayName": "Pok\u00e9mon Tower 7F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "cave",
+      "width": 24,
+      "height": 20,
+      "tileset": "building__pokemontower",
+      "defaultSpawn": {
+        "x": 11,
+        "y": 16
+      },
+      "hasWildEncounters": true,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_POWER_PLANT",
+      "name": "PowerPlant",
+      "displayName": "Power Plant",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "cave",
+      "width": 49,
+      "height": 40,
+      "tileset": "building__powerplant",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 39
+      },
+      "hasWildEncounters": true,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROCKET_HIDEOUT_B1F",
+      "name": "RocketHideout_B1F",
+      "displayName": "Rocket Hideout \u2014 B 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 28,
+      "height": 34,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 12,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 6,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROCKET_HIDEOUT_B2F",
+      "name": "RocketHideout_B2F",
+      "displayName": "Rocket Hideout \u2014 B 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 32,
+      "height": 22,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 21,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROCKET_HIDEOUT_B3F",
+      "name": "RocketHideout_B3F",
+      "displayName": "Rocket Hideout \u2014 B 3F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 22,
+      "height": 27,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 18,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROCKET_HIDEOUT_B4F",
+      "name": "RocketHideout_B4F",
+      "displayName": "Rocket Hideout \u2014 B 4F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 24,
+      "height": 26,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 11,
+        "y": 15
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROCKET_HIDEOUT_ELEVATOR",
+      "name": "RocketHideout_Elevator",
+      "displayName": "Rocket Hideout \u2014 Elevator",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 5,
+      "height": 7,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 5
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE10_POKEMON_CENTER_1F",
+      "name": "Route10_PokemonCenter_1F",
+      "displayName": "Route 10 \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE10_POKEMON_CENTER_2F",
+      "name": "Route10_PokemonCenter_2F",
+      "displayName": "Route 10 \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE11_EAST_ENTRANCE_1F",
+      "name": "Route11_EastEntrance_1F",
+      "displayName": "Route 11 \u2014 East Entrance \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 12,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE11_EAST_ENTRANCE_2F",
+      "name": "Route11_EastEntrance_2F",
+      "displayName": "Route 11 \u2014 East Entrance \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE12_FISHING_HOUSE",
+      "name": "Route12_FishingHouse",
+      "displayName": "Route 12 \u2014 Fishing House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE12_NORTH_ENTRANCE_1F",
+      "name": "Route12_NorthEntrance_1F",
+      "displayName": "Route 12 \u2014 North Entrance \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 13,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 1
+      },
+      "hasWildEncounters": false,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE12_NORTH_ENTRANCE_2F",
+      "name": "Route12_NorthEntrance_2F",
+      "displayName": "Route 12 \u2014 North Entrance \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE15_WEST_ENTRANCE_1F",
+      "name": "Route15_WestEntrance_1F",
+      "displayName": "Route 15 \u2014 West Entrance \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 12,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE15_WEST_ENTRANCE_2F",
+      "name": "Route15_WestEntrance_2F",
+      "displayName": "Route 15 \u2014 West Entrance \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE16_HOUSE",
+      "name": "Route16_House",
+      "displayName": "Route 16 \u2014 House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE16_NORTH_ENTRANCE_1F",
+      "name": "Route16_NorthEntrance_1F",
+      "displayName": "Route 16 \u2014 North Entrance \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 18,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 3
+      },
+      "hasWildEncounters": false,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE16_NORTH_ENTRANCE_2F",
+      "name": "Route16_NorthEntrance_2F",
+      "displayName": "Route 16 \u2014 North Entrance \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE18_EAST_ENTRANCE_1F",
+      "name": "Route18_EastEntrance_1F",
+      "displayName": "Route 18 \u2014 East Entrance \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 12,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE18_EAST_ENTRANCE_2F",
+      "name": "Route18_EastEntrance_2F",
+      "displayName": "Route 18 \u2014 East Entrance \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE19_UNUSED_HOUSE",
+      "name": "Route19_UnusedHouse",
+      "displayName": "Route 19 \u2014 Unused House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 3
+      },
+      "hasWildEncounters": false,
+      "warpCount": 0,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE22_NORTH_ENTRANCE",
+      "name": "Route22_NorthEntrance",
+      "displayName": "Route 22 \u2014 North Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 12,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 1
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE23_UNUSED_HOUSE",
+      "name": "Route23_UnusedHouse",
+      "displayName": "Route 23 \u2014 Unused House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 3
+      },
+      "hasWildEncounters": false,
+      "warpCount": 0,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE25_SEA_COTTAGE",
+      "name": "Route25_SeaCottage",
+      "displayName": "Route 25 \u2014 Sea Cottage",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 11,
+      "tileset": "building__seacottage",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE2_EAST_BUILDING",
+      "name": "Route2_EastBuilding",
+      "displayName": "Route 2 \u2014 East Building",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 12,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 10
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE2_HOUSE",
+      "name": "Route2_House",
+      "displayName": "Route 2 \u2014 House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE2_VIRIDIAN_FOREST_NORTH_ENTRANCE",
+      "name": "Route2_ViridianForest_NorthEntrance",
+      "displayName": "Route 2 \u2014 Viridian Forest \u2014 North Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 12,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 10
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE2_VIRIDIAN_FOREST_SOUTH_ENTRANCE",
+      "name": "Route2_ViridianForest_SouthEntrance",
+      "displayName": "Route 2 \u2014 Viridian Forest \u2014 South Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 12,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 10
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE4_POKEMON_CENTER_1F",
+      "name": "Route4_PokemonCenter_1F",
+      "displayName": "Route 4 \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE4_POKEMON_CENTER_2F",
+      "name": "Route4_PokemonCenter_2F",
+      "displayName": "Route 4 \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE5_POKEMON_DAY_CARE",
+      "name": "Route5_PokemonDayCare",
+      "displayName": "Route 5 \u2014 Pokemon Day Care",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 12,
+      "height": 9,
+      "tileset": "building__fanclubdaycare",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE5_SOUTH_ENTRANCE",
+      "name": "Route5_SouthEntrance",
+      "displayName": "Route 5 \u2014 South Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 9,
+      "height": 11,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE6_NORTH_ENTRANCE",
+      "name": "Route6_NorthEntrance",
+      "displayName": "Route 6 \u2014 North Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 9,
+      "height": 11,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 1
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE6_UNUSED_HOUSE",
+      "name": "Route6_UnusedHouse",
+      "displayName": "Route 6 \u2014 Unused House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 3
+      },
+      "hasWildEncounters": false,
+      "warpCount": 0,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE7_EAST_ENTRANCE",
+      "name": "Route7_EastEntrance",
+      "displayName": "Route 7 \u2014 East Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 5
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_ROUTE8_WEST_ENTRANCE",
+      "name": "Route8_WestEntrance",
+      "displayName": "Route 8 \u2014 West Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 4
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_1F_CORRIDOR",
+      "name": "SSAnne_1F_Corridor",
+      "displayName": "SSAnne \u2014 1F \u2014 Corridor",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 31,
+      "height": 21,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 13,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_1F_ROOM1",
+      "name": "SSAnne_1F_Room1",
+      "displayName": "SSAnne \u2014 1F \u2014 Room 1",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 8,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_1F_ROOM2",
+      "name": "SSAnne_1F_Room2",
+      "displayName": "SSAnne \u2014 1F \u2014 Room 2",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 8,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_1F_ROOM3",
+      "name": "SSAnne_1F_Room3",
+      "displayName": "SSAnne \u2014 1F \u2014 Room 3",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 8,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_1F_ROOM4",
+      "name": "SSAnne_1F_Room4",
+      "displayName": "SSAnne \u2014 1F \u2014 Room 4",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 8,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_1F_ROOM5",
+      "name": "SSAnne_1F_Room5",
+      "displayName": "SSAnne \u2014 1F \u2014 Room 5",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 8,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_1F_ROOM6",
+      "name": "SSAnne_1F_Room6",
+      "displayName": "SSAnne \u2014 1F \u2014 Room 6",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 8,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_1F_ROOM7",
+      "name": "SSAnne_1F_Room7",
+      "displayName": "SSAnne \u2014 1F \u2014 Room 7",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 8,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_2F_CORRIDOR",
+      "name": "SSAnne_2F_Corridor",
+      "displayName": "SSAnne \u2014 2F \u2014 Corridor",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 34,
+      "height": 16,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 9,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_2F_ROOM1",
+      "name": "SSAnne_2F_Room1",
+      "displayName": "SSAnne \u2014 2F \u2014 Room 1",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_2F_ROOM2",
+      "name": "SSAnne_2F_Room2",
+      "displayName": "SSAnne \u2014 2F \u2014 Room 2",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_2F_ROOM3",
+      "name": "SSAnne_2F_Room3",
+      "displayName": "SSAnne \u2014 2F \u2014 Room 3",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_2F_ROOM4",
+      "name": "SSAnne_2F_Room4",
+      "displayName": "SSAnne \u2014 2F \u2014 Room 4",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_2F_ROOM5",
+      "name": "SSAnne_2F_Room5",
+      "displayName": "SSAnne \u2014 2F \u2014 Room 5",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_2F_ROOM6",
+      "name": "SSAnne_2F_Room6",
+      "displayName": "SSAnne \u2014 2F \u2014 Room 6",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_3F_CORRIDOR",
+      "name": "SSAnne_3F_Corridor",
+      "displayName": "SSAnne \u2014 3F \u2014 Corridor",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 22,
+      "height": 7,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 4
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_B1F_CORRIDOR",
+      "name": "SSAnne_B1F_Corridor",
+      "displayName": "SSAnne \u2014 B 1F \u2014 Corridor",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 23,
+      "height": 7,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 19,
+        "y": 3
+      },
+      "hasWildEncounters": false,
+      "warpCount": 6,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_B1F_ROOM1",
+      "name": "SSAnne_B1F_Room1",
+      "displayName": "SSAnne \u2014 B 1F \u2014 Room 1",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_B1F_ROOM2",
+      "name": "SSAnne_B1F_Room2",
+      "displayName": "SSAnne \u2014 B 1F \u2014 Room 2",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_B1F_ROOM3",
+      "name": "SSAnne_B1F_Room3",
+      "displayName": "SSAnne \u2014 B 1F \u2014 Room 3",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_B1F_ROOM4",
+      "name": "SSAnne_B1F_Room4",
+      "displayName": "SSAnne \u2014 B 1F \u2014 Room 4",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_B1F_ROOM5",
+      "name": "SSAnne_B1F_Room5",
+      "displayName": "SSAnne \u2014 B 1F \u2014 Room 5",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 6,
+      "height": 9,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_CAPTAINS_OFFICE",
+      "name": "SSAnne_CaptainsOffice",
+      "displayName": "SSAnne \u2014 Captains Office",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 9,
+      "height": 10,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_DECK",
+      "name": "SSAnne_Deck",
+      "displayName": "SSAnne \u2014 Deck",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 24,
+      "height": 19,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 16,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_EXTERIOR",
+      "name": "SSAnne_Exterior",
+      "displayName": "S.S. Anne Exterior",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "outdoor",
+      "width": 70,
+      "height": 32,
+      "tileset": "general__vermilioncity",
+      "defaultSpawn": {
+        "x": 31,
+        "y": 6
+      },
+      "hasWildEncounters": true,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SSANNE_KITCHEN",
+      "name": "SSAnne_Kitchen",
+      "displayName": "SSAnne \u2014 Kitchen",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 16,
+      "height": 14,
+      "tileset": "general__ssanne",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFARI_ZONE_CENTER_REST_HOUSE",
+      "name": "SafariZone_Center_RestHouse",
+      "displayName": "Safari Zone \u2014 Center \u2014 Rest House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__safarizonebuilding",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFARI_ZONE_EAST_REST_HOUSE",
+      "name": "SafariZone_East_RestHouse",
+      "displayName": "Safari Zone \u2014 East \u2014 Rest House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__safarizonebuilding",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFARI_ZONE_NORTH_REST_HOUSE",
+      "name": "SafariZone_North_RestHouse",
+      "displayName": "Safari Zone \u2014 North \u2014 Rest House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__safarizonebuilding",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFARI_ZONE_SECRET_HOUSE",
+      "name": "SafariZone_SecretHouse",
+      "displayName": "Safari Zone \u2014 Secret House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__safarizonebuilding",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFARI_ZONE_WEST_REST_HOUSE",
+      "name": "SafariZone_West_RestHouse",
+      "displayName": "Safari Zone \u2014 West \u2014 Rest House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 11,
+      "tileset": "building__safarizonebuilding",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 9
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_COPYCATS_HOUSE_1F",
+      "name": "SaffronCity_CopycatsHouse_1F",
+      "displayName": "Saffron City \u2014 Copycats House \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 10,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_COPYCATS_HOUSE_2F",
+      "name": "SaffronCity_CopycatsHouse_2F",
+      "displayName": "Saffron City \u2014 Copycats House \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 12,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 10,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_DOJO",
+      "name": "SaffronCity_Dojo",
+      "displayName": "Saffron City \u2014 Dojo",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 16,
+      "tileset": "building__pewtergym",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 14
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_GYM",
+      "name": "SaffronCity_Gym",
+      "displayName": "Saffron City \u2014 Gym",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 29,
+      "height": 25,
+      "tileset": "building__saffrongym",
+      "defaultSpawn": {
+        "x": 13,
+        "y": 23
+      },
+      "hasWildEncounters": false,
+      "warpCount": 33,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_HOUSE",
+      "name": "SaffronCity_House",
+      "displayName": "Saffron City \u2014 House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_MART",
+      "name": "SaffronCity_Mart",
+      "displayName": "Saffron City \u2014 Mart",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__mart",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_MR_PSYCHICS_HOUSE",
+      "name": "SaffronCity_MrPsychicsHouse",
+      "displayName": "Saffron City \u2014 Mr Psychics House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_POKEMON_CENTER_1F",
+      "name": "SaffronCity_PokemonCenter_1F",
+      "displayName": "Saffron City \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_POKEMON_CENTER_2F",
+      "name": "SaffronCity_PokemonCenter_2F",
+      "displayName": "Saffron City \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB",
+      "name": "SaffronCity_PokemonTrainerFanClub",
+      "displayName": "Saffron City \u2014 Pokemon Trainer Fan Club",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 17,
+      "tileset": "building__fanclubdaycare",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 15
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_10F",
+      "name": "SilphCo_10F",
+      "displayName": "Silph Co \u2014 10F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 17,
+      "height": 19,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 6,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_11F",
+      "name": "SilphCo_11F",
+      "displayName": "Silph Co \u2014 11F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 17,
+      "height": 20,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_1F",
+      "name": "SilphCo_1F",
+      "displayName": "Silph Co \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 36,
+      "height": 22,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 7,
+        "y": 21
+      },
+      "hasWildEncounters": false,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_2F",
+      "name": "SilphCo_2F",
+      "displayName": "Silph Co \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 36,
+      "height": 22,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 28,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 7,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_3F",
+      "name": "SilphCo_3F",
+      "displayName": "Silph Co \u2014 3F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 36,
+      "height": 22,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 28,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 10,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_4F",
+      "name": "SilphCo_4F",
+      "displayName": "Silph Co \u2014 4F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 36,
+      "height": 22,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 28,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 7,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_5F",
+      "name": "SilphCo_5F",
+      "displayName": "Silph Co \u2014 5F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 36,
+      "height": 22,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 28,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 7,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_6F",
+      "name": "SilphCo_6F",
+      "displayName": "Silph Co \u2014 6F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 31,
+      "height": 19,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 14,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_7F",
+      "name": "SilphCo_7F",
+      "displayName": "Silph Co \u2014 7F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 31,
+      "height": 19,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 19,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 6,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_8F",
+      "name": "SilphCo_8F",
+      "displayName": "Silph Co \u2014 8F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 31,
+      "height": 19,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 16,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 7,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_9F",
+      "name": "SilphCo_9F",
+      "displayName": "Silph Co \u2014 9F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 31,
+      "height": 19,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 16,
+        "y": 2
+      },
+      "hasWildEncounters": false,
+      "warpCount": 5,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_SILPH_CO_ELEVATOR",
+      "name": "SilphCo_Elevator",
+      "displayName": "Silph Co \u2014 Elevator",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 5,
+      "height": 7,
+      "tileset": "building__silphco",
+      "defaultSpawn": {
+        "x": 2,
+        "y": 5
+      },
+      "hasWildEncounters": false,
+      "warpCount": 1,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_UNDERGROUND_PATH_EAST_ENTRANCE",
+      "name": "UndergroundPath_EastEntrance",
+      "displayName": "Underground Path \u2014 East Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 10,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_UNDERGROUND_PATH_EAST_WEST_TUNNEL",
+      "name": "UndergroundPath_EastWestTunnel",
+      "displayName": "Underground Path \u2014 East West Tunnel",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 80,
+      "height": 7,
+      "tileset": "building__undergroundpath",
+      "defaultSpawn": {
+        "x": 76,
+        "y": 3
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_UNDERGROUND_PATH_NORTH_ENTRANCE",
+      "name": "UndergroundPath_NorthEntrance",
+      "displayName": "Underground Path \u2014 North Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 10,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL",
+      "name": "UndergroundPath_NorthSouthTunnel",
+      "displayName": "Underground Path \u2014 North South Tunnel",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 8,
+      "height": 63,
+      "tileset": "building__undergroundpath",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 3
+      },
+      "hasWildEncounters": false,
+      "warpCount": 2,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_UNDERGROUND_PATH_SOUTH_ENTRANCE",
+      "name": "UndergroundPath_SouthEntrance",
+      "displayName": "Underground Path \u2014 South Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 10,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_UNDERGROUND_PATH_WEST_ENTRANCE",
+      "name": "UndergroundPath_WestEntrance",
+      "displayName": "Underground Path \u2014 West Entrance",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 13,
+      "height": 10,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 5,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VERMILION_CITY_GYM",
+      "name": "VermilionCity_Gym",
+      "displayName": "Vermilion City \u2014 Gym",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 21,
+      "tileset": "building__vermiliongym",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 19
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VERMILION_CITY_HOUSE1",
+      "name": "VermilionCity_House1",
+      "displayName": "Vermilion City \u2014 House 1",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VERMILION_CITY_HOUSE2",
+      "name": "VermilionCity_House2",
+      "displayName": "Vermilion City \u2014 House 2",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VERMILION_CITY_HOUSE3",
+      "name": "VermilionCity_House3",
+      "displayName": "Vermilion City \u2014 House 3",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding1",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VERMILION_CITY_MART",
+      "name": "VermilionCity_Mart",
+      "displayName": "Vermilion City \u2014 Mart",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__mart",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VERMILION_CITY_POKEMON_CENTER_1F",
+      "name": "VermilionCity_PokemonCenter_1F",
+      "displayName": "Vermilion City \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VERMILION_CITY_POKEMON_CENTER_2F",
+      "name": "VermilionCity_PokemonCenter_2F",
+      "displayName": "Vermilion City \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VERMILION_CITY_POKEMON_FAN_CLUB",
+      "name": "VermilionCity_PokemonFanClub",
+      "displayName": "Vermilion City \u2014 Pokemon Fan Club",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 12,
+      "height": 12,
+      "tileset": "building__fanclubdaycare",
+      "defaultSpawn": {
+        "x": 4,
+        "y": 10
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VIRIDIAN_CITY_GYM",
+      "name": "ViridianCity_Gym",
+      "displayName": "Viridian City \u2014 Gym",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 20,
+      "height": 24,
+      "tileset": "building__viridiangym",
+      "defaultSpawn": {
+        "x": 16,
+        "y": 22
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VIRIDIAN_CITY_HOUSE",
+      "name": "ViridianCity_House",
+      "displayName": "Viridian City \u2014 House",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__genericbuilding2",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VIRIDIAN_CITY_MART",
+      "name": "ViridianCity_Mart",
+      "displayName": "Viridian City \u2014 Mart",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 11,
+      "height": 9,
+      "tileset": "building__mart",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F",
+      "name": "ViridianCity_PokemonCenter_1F",
+      "displayName": "Viridian City \u2014 Pokemon Center \u2014 1F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 6,
+        "y": 8
+      },
+      "hasWildEncounters": false,
+      "warpCount": 4,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_2F",
+      "name": "ViridianCity_PokemonCenter_2F",
+      "displayName": "Viridian City \u2014 Pokemon Center \u2014 2F",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 15,
+      "height": 10,
+      "tileset": "building__pokemoncenter",
+      "defaultSpawn": {
+        "x": 1,
+        "y": 6
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    },
+    {
+      "id": "MAP_VIRIDIAN_CITY_SCHOOL",
+      "name": "ViridianCity_School",
+      "displayName": "Viridian City \u2014 School",
+      "mapType": "MAP_TYPE_INDOOR",
+      "environment": "indoor",
+      "width": 10,
+      "height": 9,
+      "tileset": "building__school",
+      "defaultSpawn": {
+        "x": 3,
+        "y": 7
+      },
+      "hasWildEncounters": false,
+      "warpCount": 3,
+      "connectionCount": 0
+    }
+  ]
+}

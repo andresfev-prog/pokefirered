@@ -1,0 +1,63 @@
+{
+  "cellWidth": 32,
+  "cellHeight": 32,
+  "footAnchor": {
+    "x": 16,
+    "y": 31
+  },
+  "rows": {
+    "walk": 0,
+    "run": 1,
+    "bike": 2
+  },
+  "directions": {
+    "down": {
+      "cols": [
+        0,
+        1,
+        2
+      ]
+    },
+    "up": {
+      "cols": [
+        3,
+        4,
+        5
+      ]
+    },
+    "left": {
+      "cols": [
+        6,
+        7,
+        8
+      ]
+    },
+    "right": {
+      "cols": [
+        9,
+        10,
+        11
+      ]
+    }
+  },
+  "characters": {
+    "ash": {
+      "name": "Ash (Red)",
+      "file": "assets/sprites/characters/ash.png",
+      "width": 384,
+      "height": 96
+    },
+    "gary": {
+      "name": "Gary (Blue)",
+      "file": "assets/sprites/characters/gary.png",
+      "width": 384,
+      "height": 96
+    },
+    "leaf": {
+      "name": "Leaf (Green)",
+      "file": "assets/sprites/characters/leaf.png",
+      "width": 384,
+      "height": 96
+    }
+  }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banco de Pruebas de Overworld — Pokémon Red/Green Web</title>
+    <link rel="stylesheet" href="./css/overworld-test.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-title">
+        <span>🗺️ Pokémon Red/Green Web — Overworld &amp; Gráficos (Fase 3)</span>
+        <span class="badge-pill">GBA Tilesets + Sprites Kanto</span>
+      </div>
+      <div class="header-controls">
+        <span class="badge-pill" id="time-status-badge">🕒 Automático</span>
+        <label class="inline-select">
+          Horario:
+          <select id="time-mode-select">
+            <option value="auto">Automático (Reloj)</option>
+            <option value="day">☀️ Día (06:00–16:59)</option>
+            <option value="evening">🌇 Tarde (17:00–19:59)</option>
+            <option value="night">🌙 Noche (20:00–05:59)</option>
+          </select>
+        </label>
+        <a class="nav-link" href="./battle-test.html">⚔️ Ir a Combate (Fase 2)</a>
+      </div>
+    </header>
+
+    <div id="protocol-banner" class="banner-warning hidden">
+      <strong>Nota de ejecución local:</strong> Los navegadores bloquean <code>fetch()</code> sobre archivos
+      <code>file://</code>. Sirve la carpeta <code>juego-html/</code> con un servidor HTTP local (por ejemplo:
+      <code>python3 -m http.server 8080</code> dentro de <code>juego-html</code>) y abre
+      <code>http://localhost:8080/overworld-test.html</code>.
+    </div>
+
+    <main class="layout-grid">
+      <!-- Panel Izquierdo: Protagonista, Horario, Teletransporte y Auditoría de Encuentros -->
+      <aside class="panel sidebar-panel">
+        <section class="card-block">
+          <h2 class="panel-title">Protagonista</h2>
+          <div class="segmented" id="protagonist-buttons">
+            <button type="button" class="seg-btn active" data-char="ash">Ash</button>
+            <button type="button" class="seg-btn" data-char="gary">Gary</button>
+            <button type="button" class="seg-btn" data-char="leaf">Leaf</button>
+          </div>
+          <div class="sprite-preview-box">
+            <canvas id="sprite-preview-canvas" width="128" height="40"></canvas>
+            <div class="sprite-preview-meta">
+              <span id="sprite-mode-label">Modo: Caminar · 4 direcciones</span>
+              <div class="quick-row">
+                <button type="button" class="btn-small" id="btn-toggle-bike">🚲 Bici [B]</button>
+                <button type="button" class="btn-small" id="btn-toggle-surf">🌊 Surf Debug</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card-block">
+          <h2 class="panel-title">Teletransporte Rápido</h2>
+          <div class="quick-pills" id="quick-map-pills">
+            <button type="button" class="btn-small" data-map="MAP_PALLET_TOWN">Pueblo Paleta</button>
+            <button type="button" class="btn-small" data-map="MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB">Lab. Oak</button>
+            <button type="button" class="btn-small" data-map="MAP_ROUTE1">Ruta 1</button>
+            <button type="button" class="btn-small" data-map="MAP_VIRIDIAN_FOREST">Bosque Verde</button>
+            <button type="button" class="btn-small" data-map="MAP_ROUTE3">Ruta 3 (Jigglypuff Noche)</button>
+            <button type="button" class="btn-small" data-map="MAP_MT_MOON_1F">Mt. Moon (Cueva 24h)</button>
+            <button type="button" class="btn-small" data-map="MAP_CERULEAN_CITY">Ciudad Celeste</button>
+            <button type="button" class="btn-small" data-map="MAP_SAFFRON_CITY">Ciudad Azafrán</button>
+            <button type="button" class="btn-small" data-map="MAP_SAFARI_ZONE_CENTER">Zona Safari</button>
+            <button type="button" class="btn-small" data-map="MAP_VICTORY_ROAD_1F">Calle Victoria</button>
+            <button type="button" class="btn-small" data-map="MAP_INDIGO_PLATEAU_EXTERIOR">Meseta Añil</button>
+          </div>
+          <div class="form-group" style="margin-top:8px;">
+            <label for="map-teleport-select">Todos los mapas de Kanto (<span id="map-total-count">0</span>)</label>
+            <div class="select-go-row">
+              <select id="map-teleport-select"></select>
+              <button type="button" class="btn-primary-sm" id="btn-teleport">Ir</button>
+            </div>
+          </div>
+          <label class="checkbox-row">
+            <input type="checkbox" id="chk-collision-overlay" />
+            <span>Mostrar colisiones (0–4) y warps</span>
+          </label>
+        </section>
+
+        <section class="card-block">
+          <div class="section-header-row">
+            <h2 class="panel-title">Encuentros en Zona Actual</h2>
+            <button type="button" class="btn-small accent" id="btn-force-encounter">⚔️ Probar Combate</button>
+          </div>
+          <div id="encounter-env-note" class="env-note">Cargando tabla...</div>
+          <div id="encounter-preview-list" class="encounter-list"></div>
+        </section>
+      </aside>
+
+      <!-- Escenario Central: Canvas 2D + Controles + HUD -->
+      <section class="main-stage">
+        <div class="panel canvas-panel">
+          <div class="hud-bar">
+            <div class="hud-item">
+              <span class="hud-label">Mapa:</span>
+              <strong id="hud-map-name">Cargando...</strong>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">Posición:</span>
+              <code id="hud-coords">(0, 0)</code>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">Entorno:</span>
+              <span id="hud-env-badge" class="env-badge outdoor">outdoor</span>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">Tile:</span>
+              <span id="hud-collision-label">0: Transitable</span>
+            </div>
+          </div>
+
+          <div class="canvas-wrapper">
+            <canvas id="overworld-canvas" width="256" height="192"></canvas>
+            <div id="toast-bar" class="toast-bar hidden"></div>
+          </div>
+
+          <div class="controls-bar">
+            <div class="controls-hint">
+              <span><strong>Mover:</strong> Flechas / WASD</span>
+              <span><strong>Correr:</strong> Shift</span>
+              <span><strong>Bicicleta:</strong> Tecla B</span>
+              <span><strong>Puertas / Warps:</strong> Camina sobre puertas o escaleras</span>
+            </div>
+            <div class="touch-pad">
+              <div class="dpad">
+                <button type="button" class="dpad-btn up" data-dir="up">▲</button>
+                <button type="button" class="dpad-btn left" data-dir="left">◀</button>
+                <button type="button" class="dpad-btn center" id="btn-pad-run" title="Alternar correr">🏃</button>
+                <button type="button" class="dpad-btn right" data-dir="right">▶</button>
+                <button type="button" class="dpad-btn down" data-dir="down">▼</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel-title">Registro de Exploración</h2>
+          <div id="overworld-log" class="overworld-log"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal de Encuentro Salvaje Integrado (Motor Fase 2 + Sprites Fase 3) -->
+    <div id="wild-battle-modal" class="battle-modal hidden" role="dialog" aria-modal="true">
+      <div class="battle-modal-card">
+        <div class="battle-modal-header">
+          <span id="wb-title">¡Un Pokémon salvaje apareció!</span>
+          <button type="button" class="btn-small" id="wb-close-btn">Cerrar</button>
+        </div>
+
+        <div id="wb-stage" class="wb-stage">
+          <div class="wb-combatant foe">
+            <div class="wb-stat-card">
+              <div class="wb-name-row">
+                <strong id="wb-foe-name">---</strong>
+                <span id="wb-foe-level">Nv. --</span>
+              </div>
+              <div class="hp-bar-track"><div id="wb-foe-hp-fill" class="hp-bar-fill"></div></div>
+              <div class="wb-hp-text" id="wb-foe-hp-text">-- / --</div>
+            </div>
+            <img id="wb-foe-sprite" class="wb-sprite foe-sprite" alt="Pokémon salvaje" />
+          </div>
+
+          <div class="wb-combatant player">
+            <img id="wb-ply-sprite" class="wb-sprite ply-sprite" alt="Tu Pokémon" />
+            <div class="wb-stat-card">
+              <div class="wb-name-row">
+                <strong id="wb-ply-name">---</strong>
+                <span id="wb-ply-level">Nv. --</span>
+              </div>
+              <div class="hp-bar-track"><div id="wb-ply-hp-fill" class="hp-bar-fill"></div></div>
+              <div class="wb-hp-text" id="wb-ply-hp-text">-- / --</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wb-actions-area">
+          <div id="wb-moves-grid" class="wb-moves-grid"></div>
+          <div class="wb-side-actions">
+            <button type="button" class="btn-small" id="wb-ball-btn">🔴 Poké Ball</button>
+            <button type="button" class="btn-small" id="wb-great-btn">🔵 Super Ball</button>
+            <button type="button" class="btn-small" id="wb-heal-btn">🧪 Poción</button>
+            <button type="button" class="btn-small danger" id="wb-run-btn">🏃 Huir</button>
+          </div>
+        </div>
+
+        <div id="wb-log" class="wb-log"></div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/overworld/overworldTestUI.js"></script>
+  </body>
+</html>
