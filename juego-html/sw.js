@@ -17,6 +17,7 @@ const CORE_SHELL_PATHS = [
   "./assets/icon-512.png",
   "./data/offline_assets.json",
   "./js/game/mainApp.js",
+  "./js/game/gamepadController.js",
   "./js/game/saveManager.js",
   "./js/game/pokemonProgress.js",
   "./js/game/storyEvents.js",

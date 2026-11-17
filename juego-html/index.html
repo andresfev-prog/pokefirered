@@ -122,6 +122,7 @@
         <span id="hudMoney" class="hud-pill gold">₽5,000</span>
         <span id="hudBadges" class="hud-pill">🏅 Medallas: 0/8</span>
         <span id="hudSymbols" class="hud-pill">🏆 Frontera: 0/7</span>
+        <span id="hudGamepadBadge" class="hud-pill gamepad-pill hidden">🎮 Mando</span>
       </div>
       <div class="hud-controls">
         <select id="selectTimeOverride" class="input-select" style="padding:5px 8px; font-size:0.82rem;" title="Control de horario">
@@ -133,6 +134,7 @@
         <button id="btnOpenTravel" type="button" class="btn btn-sm btn-gold">🗺️ Vuelo / Eventos</button>
         <button id="btnToggleBike" type="button" class="btn btn-sm">🚲 Bici</button>
         <button id="btnInteractAction" type="button" class="btn btn-sm btn-success">💬 Hablar (Enter)</button>
+        <button id="btnToggleTouchControls" type="button" class="btn btn-sm btn-ghost" aria-pressed="false" title="Mostrar u ocultar controles táctiles">📱 Táctil</button>
         <button id="btnOpenPauseMenu" type="button" class="btn btn-sm btn-primary">☰ Menú (Esc)</button>
       </div>
     </header>
@@ -146,7 +148,7 @@
         <div class="gba-dialogue-box">
           <div class="dialogue-header">
             <span id="dialogueSpeaker" class="dialogue-speaker">Prof. Oak</span>
-            <span style="font-size:0.75rem; color:#475569;">Enter / Espacio / Clic</span>
+            <span style="font-size:0.75rem; color:#475569;">Enter / A / Clic</span>
           </div>
           <p id="dialogueText" class="dialogue-text"></p>
           <div id="dialogueChoices" class="dialogue-actions">
@@ -156,27 +158,41 @@
       </div>
     </div>
 
-    <footer class="controls-footer">
+    <footer id="controlsFooter" class="controls-footer">
       <div class="key-hints">
         <span><kbd>WASD</kbd> / <kbd>Flechas</kbd> Mover</span>
-        <span><kbd>Shift</kbd> Correr</span>
-        <span><kbd>B</kbd> Bicicleta</span>
-        <span><kbd>Enter</kbd> / <kbd>Espacio</kbd> Hablar / Tienda / Curar</span>
-        <span><kbd>Esc</kbd> Menú de Pausa</span>
+        <span><kbd>Shift</kbd> / <kbd>B</kbd> Correr</span>
+        <span><kbd>B</kbd> (Teclado) / <kbd>X</kbd> (Mando) Bici</span>
+        <span><kbd>Enter</kbd> / <kbd>A</kbd> Hablar / Confirmar</span>
+        <span><kbd>Esc</kbd> / <kbd>Start</kbd> Pausa</span>
       </div>
-      <div class="touch-controls">
-        <div class="dpad-grid">
-          <span></span>
-          <button id="btnDpadUp" type="button" class="dpad-btn">▲</button>
-          <span></span>
-          <button id="btnDpadLeft" type="button" class="dpad-btn">◀</button>
-          <button id="btnDpadDown" type="button" class="dpad-btn">▼</button>
-          <button id="btnDpadRight" type="button" class="dpad-btn">▶</button>
+      <div id="touchControls" class="touch-controls">
+        <div id="touchDpad" class="dpad-grid" role="group" aria-label="Cruceta direccional deslizante">
+          <span class="dpad-spacer" aria-hidden="true"></span>
+          <button id="btnDpadUp" type="button" class="dpad-btn" data-dir="up" aria-label="Arriba">▲</button>
+          <span class="dpad-spacer" aria-hidden="true"></span>
+          <button id="btnDpadLeft" type="button" class="dpad-btn" data-dir="left" aria-label="Izquierda">◀</button>
+          <span class="dpad-center" aria-hidden="true"></span>
+          <button id="btnDpadRight" type="button" class="dpad-btn" data-dir="right" aria-label="Derecha">▶</button>
+          <span class="dpad-spacer" aria-hidden="true"></span>
+          <button id="btnDpadDown" type="button" class="dpad-btn" data-dir="down" aria-label="Abajo">▼</button>
+          <span class="dpad-spacer" aria-hidden="true"></span>
         </div>
-        <div style="display:flex; gap:6px;">
-          <button id="btnTouchA" type="button" class="btn btn-sm btn-success">A</button>
-          <button id="btnTouchRun" type="button" class="btn btn-sm">Correr</button>
-          <button id="btnTouchMenu" type="button" class="btn btn-sm btn-primary">Menú</button>
+        <div class="touch-right-pad">
+          <div class="touch-utility-row">
+            <button id="btnTouchBike" type="button" class="btn btn-sm touch-util-btn" aria-label="Alternar Bicicleta">🚲 Bici</button>
+            <button id="btnTouchMenu" type="button" class="btn btn-sm btn-primary touch-util-btn" aria-label="Menú de Pausa">☰ Menú</button>
+          </div>
+          <div class="touch-ab-cluster">
+            <button id="btnTouchB" type="button" class="touch-ab-btn touch-btn-b" aria-label="Botón B: Mantener para correr o volver atrás">
+              <span class="ab-letter">B</span>
+              <span class="ab-sub">Correr/Atrás</span>
+            </button>
+            <button id="btnTouchA" type="button" class="touch-ab-btn touch-btn-a" aria-label="Botón A: Interactuar o confirmar">
+              <span class="ab-letter">A</span>
+              <span class="ab-sub">Acción</span>
+            </button>
+          </div>
         </div>
       </div>
     </footer>

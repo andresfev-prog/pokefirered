@@ -81,6 +81,8 @@ export class OverworldEngine {
     this.heldDirs = [];
     this.shiftDown = false;
     this.turnGraceElapsed = 0;
+    this._dirSources = new Map();
+    this._runSources = new Set();
 
     this.timePeriod = "day";
     this.showCollisionOverlay = false;
@@ -90,9 +92,25 @@ export class OverworldEngine {
     this._keyDownHandler = (e) => this._onKeyDown(e);
     this._keyUpHandler = (e) => this._onKeyUp(e);
     this._blurHandler = () => {
-      this.heldDirs = [];
-      this.shiftDown = false;
+      this._clearAllInputs();
     };
+  }
+
+  _clearAllInputs() {
+    this._dirSources.clear();
+    this._runSources.clear();
+    this.heldDirs = [];
+    this.shiftDown = false;
+    this.turnGraceElapsed = 0;
+  }
+
+  _isDirHeldByOtherSource(dir, excludedSource) {
+    for (const [src, dirs] of this._dirSources.entries()) {
+      if (src !== excludedSource && dirs.has(dir)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   async init({ initialMapId = "MAP_PALLET_TOWN", characterKey = "ash", timePeriod = "day", spawn = null } = {}) {
@@ -123,8 +141,7 @@ export class OverworldEngine {
   setPaused(paused) {
     this.paused = Boolean(paused);
     if (paused) {
-      this.heldDirs = [];
-      this.shiftDown = false;
+      this._clearAllInputs();
     }
   }
 
@@ -149,10 +166,10 @@ export class OverworldEngine {
   }
 
   toggleBike() {
-    if (this.paused || this.moveState) return;
+    if (this.paused || this.moveState) return false;
     if (!this.player.bikeMode && this.currentBundle?.map && !this.currentBundle.map.allowCycling) {
       this.notify("El Prof. Oak dice: ¡Aquí no es momento para usar la Bicicleta!", "warn");
-      return;
+      return false;
     }
     this.player.bikeMode = !this.player.bikeMode;
     this.notify(
@@ -160,23 +177,57 @@ export class OverworldEngine {
       "info"
     );
     this.emitDebugUpdate();
+    return true;
   }
 
-  setShiftRun(active) {
-    this.shiftDown = Boolean(active);
+  setShiftRun(active, source = "default") {
+    if (active) {
+      this._runSources.add(source);
+    } else {
+      this._runSources.delete(source);
+    }
+    this.shiftDown = this._runSources.size > 0;
     this.emitDebugUpdate();
   }
 
-  pressDirection(dir) {
+  pressDirection(dir, source = "default") {
     if (!DIR_VECTORS[dir]) return;
+    if (!this._dirSources.has(source)) {
+      this._dirSources.set(source, new Set());
+    }
+    this._dirSources.get(source).add(dir);
     this.heldDirs = this.heldDirs.filter((d) => d !== dir);
     this.heldDirs.push(dir);
   }
 
-  releaseDirection(dir) {
-    this.heldDirs = this.heldDirs.filter((d) => d !== dir);
+  releaseDirection(dir, source = "default") {
+    const set = this._dirSources.get(source);
+    if (set) {
+      set.delete(dir);
+      if (set.size === 0) this._dirSources.delete(source);
+    }
+    if (!this._isDirHeldByOtherSource(dir, source)) {
+      this.heldDirs = this.heldDirs.filter((d) => d !== dir);
+    }
     if (this.heldDirs.length === 0) {
       this.turnGraceElapsed = 0;
+    }
+  }
+
+  /**
+   * Asigna una única dirección activa (o null) para una fuente continua
+   * como palanca de Gamepad o cruceta táctil deslizante.
+   */
+  setDirectionalSource(source, dir) {
+    const prevSet = this._dirSources.get(source);
+    const prevDirs = prevSet ? [...prevSet] : [];
+    for (const oldDir of prevDirs) {
+      if (oldDir !== dir) {
+        this.releaseDirection(oldDir, source);
+      }
+    }
+    if (dir && DIR_VECTORS[dir]) {
+      this.pressDirection(dir, source);
     }
   }
 
@@ -191,7 +242,9 @@ export class OverworldEngine {
       return;
     }
     if (e.key === "Shift") {
-      this.shiftDown = true;
+      if (!this._runSources.has("keyboard")) {
+        this.setShiftRun(true, "keyboard");
+      }
       return;
     }
     if (e.key === "b" || e.key === "B") {
@@ -217,14 +270,13 @@ export class OverworldEngine {
     const dir = dirMap[e.key];
     if (dir) {
       e.preventDefault();
-      this.pressDirection(dir);
+      this.pressDirection(dir, "keyboard");
     }
   }
 
   _onKeyUp(e) {
     if (e.key === "Shift") {
-      this.shiftDown = false;
-      this.emitDebugUpdate();
+      this.setShiftRun(false, "keyboard");
       return;
     }
     const dirMap = {
@@ -243,7 +295,7 @@ export class OverworldEngine {
     };
     const dir = dirMap[e.key];
     if (dir) {
-      this.releaseDirection(dir);
+      this.releaseDirection(dir, "keyboard");
     }
   }
 

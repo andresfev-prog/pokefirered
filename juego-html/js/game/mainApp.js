@@ -84,6 +84,10 @@ import {
   getEliteFourSequence,
   onTournamentRoundVictory,
 } from "./leagueAndFrontier.js";
+import {
+  GamepadController,
+  resolveSlidingDpadDirection,
+} from "./gamepadController.js";
 
 const STARTER_LABELS_ES = {
   BULBASAUR: "Bulbasaur (Planta)",
@@ -128,6 +132,11 @@ class PokemonWebGame {
     this.offlineDownloading = false;
     this.offlineCounts = { cached: 0, total: 0 };
 
+    this.gamepadController = null;
+    this.focusedNavElement = null;
+    this.activeTouchDpadDir = null;
+    this.touchVisibilityOverride = null;
+
     this.dom = this.collectDom();
   }
 
@@ -169,10 +178,12 @@ class PokemonWebGame {
       hudMoney: id("hudMoney"),
       hudBadges: id("hudBadges"),
       hudSymbols: id("hudSymbols"),
+      hudGamepadBadge: id("hudGamepadBadge"),
       selectTimeOverride: id("selectTimeOverride"),
       btnOpenTravel: id("btnOpenTravel"),
       btnToggleBike: id("btnToggleBike"),
       btnInteractAction: id("btnInteractAction"),
+      btnToggleTouchControls: id("btnToggleTouchControls"),
       btnOpenPauseMenu: id("btnOpenPauseMenu"),
 
       overworldCanvas: id("overworldCanvas"),
@@ -183,12 +194,16 @@ class PokemonWebGame {
       dialogueChoices: id("dialogueChoices"),
       btnDialogueNext: id("btnDialogueNext"),
 
+      controlsFooter: id("controlsFooter"),
+      touchControls: id("touchControls"),
+      touchDpad: id("touchDpad"),
       btnDpadUp: id("btnDpadUp"),
       btnDpadDown: id("btnDpadDown"),
       btnDpadLeft: id("btnDpadLeft"),
       btnDpadRight: id("btnDpadRight"),
       btnTouchA: id("btnTouchA"),
-      btnTouchRun: id("btnTouchRun"),
+      btnTouchB: id("btnTouchB"),
+      btnTouchBike: id("btnTouchBike"),
       btnTouchMenu: id("btnTouchMenu"),
 
       travelModal: id("travelModal"),
@@ -279,6 +294,8 @@ class PokemonWebGame {
       items: this.coreData.items,
     });
     this.bindEvents();
+    this.initGamepadSupport();
+    this.syncTouchToggleButton();
     this.renderTitleScreen();
     this.startTimeRefreshLoop();
   }
@@ -330,11 +347,11 @@ class PokemonWebGame {
     });
     this.dom.btnToggleBike.addEventListener("click", () => {
       this.overworldEngine?.toggleBike();
+      this.updateHud();
     });
     this.dom.btnInteractAction.addEventListener("click", () => this.handleActionPress());
-    this.dom.btnTouchA.addEventListener("click", () => this.handleActionPress());
+    this.dom.btnToggleTouchControls.addEventListener("click", () => this.toggleTouchControlsVisibility());
     this.dom.btnOpenPauseMenu.addEventListener("click", () => this.openPauseMenu());
-    this.dom.btnTouchMenu.addEventListener("click", () => this.openPauseMenu());
     this.dom.btnOpenTravel.addEventListener("click", () => this.openTravelModal());
     this.dom.btnCloseTravel.addEventListener("click", () => this.closeModal("travelModal"));
     this.dom.btnCloseShop.addEventListener("click", () => this.closeModal("shopModal"));
@@ -342,28 +359,7 @@ class PokemonWebGame {
     this.dom.btnClosePause.addEventListener("click", () => this.closePauseMenu());
     this.dom.btnReturnTitle.addEventListener("click", () => this.returnToTitleScreen());
 
-    // D-pad & Touch run
-    const bindDpad = (btn, dir) => {
-      btn.addEventListener("pointerdown", (e) => {
-        e.preventDefault();
-        this.overworldEngine?.pressDirection(dir);
-      });
-      const stop = () => this.overworldEngine?.releaseDirection(dir);
-      btn.addEventListener("pointerup", stop);
-      btn.addEventListener("pointerleave", stop);
-      btn.addEventListener("pointercancel", stop);
-    };
-    bindDpad(this.dom.btnDpadUp, "up");
-    bindDpad(this.dom.btnDpadDown, "down");
-    bindDpad(this.dom.btnDpadLeft, "left");
-    bindDpad(this.dom.btnDpadRight, "right");
-
-    this.dom.btnTouchRun.addEventListener("click", () => {
-      if (!this.overworldEngine) return;
-      const next = !this.overworldEngine.shiftDown;
-      this.overworldEngine.setShiftRun(next);
-      this.dom.btnTouchRun.classList.toggle("btn-gold", next);
-    });
+    this.bindTouchControls();
 
     // Dialogue Advance
     this.dom.btnDialogueNext.addEventListener("click", () => this.advanceDialogue());
@@ -428,12 +424,7 @@ class PokemonWebGame {
   }
 
   handleActionPress() {
-    if (!this.dom.dialogueOverlay.classList.contains("hidden")) {
-      const choiceButtons = [...this.dom.dialogueChoices.querySelectorAll("button")];
-      if (choiceButtons.length === 1) choiceButtons[0].click();
-      return;
-    }
-    this.overworldEngine?.interact();
+    this.handleConfirmAction();
   }
 
   // -------------------------------------------------------------------------
@@ -448,6 +439,9 @@ class PokemonWebGame {
     this.dom.panelImportSave.classList.toggle("hidden", tab !== "import");
     if (tab === "continue") this.renderContinueSlots();
     if (tab === "newgame") this.renderNewGameSetup();
+    if (this.gamepadController?.connected) {
+      this.ensureActiveUiFocus();
+    }
   }
 
   renderTitleScreen() {
@@ -455,6 +449,9 @@ class PokemonWebGame {
     this.dom.screenGame.classList.add("hidden");
     this.renderContinueSlots();
     this.renderNewGameSetup();
+    if (this.gamepadController?.connected) {
+      this.ensureActiveUiFocus();
+    }
   }
 
   renderContinueSlots() {
@@ -689,6 +686,7 @@ class PokemonWebGame {
         onEncounterCheck: (map, col) => this.handleWildEncounterStep(map, col),
         onInteract: (payload) => this.handleOverworldInteraction(payload),
         onNotification: (msg) => this.showToast(msg),
+        onDebugUpdate: () => this.updateHud(),
       });
 
       await this.overworldEngine.init({
@@ -709,6 +707,7 @@ class PokemonWebGame {
     }
 
     this.updateHud();
+    this.syncGamepadToOverworld();
 
     if (isNewGame) {
       this.startDialogueSequence(
@@ -743,7 +742,9 @@ class PokemonWebGame {
     this.dom.hudBadges.textContent = `🏅 Medallas: ${this.gameState.badges.length}/8`;
     this.dom.hudSymbols.textContent = `🏆 Frontera: ${this.gameState.frontierSymbols.length}/7`;
     if (this.overworldEngine) {
-      this.dom.btnToggleBike.textContent = this.overworldEngine.player.bikeMode ? "🚶 A pie (B)" : "🚲 Bici (B)";
+      const biking = Boolean(this.overworldEngine.player.bikeMode);
+      this.dom.btnToggleBike.textContent = biking ? "🚶 A pie (B)" : "🚲 Bici (B)";
+      this.dom.btnTouchBike?.classList.toggle("active", biking);
     }
   }
 
@@ -798,6 +799,10 @@ class PokemonWebGame {
     }
 
     this.dom.dialogueOverlay.classList.remove("hidden");
+    if (this.gamepadController?.connected) {
+      const firstChoice = this.dom.dialogueChoices.querySelector("button");
+      if (firstChoice) this.setGamepadFocus(firstChoice);
+    }
   }
 
   advanceDialogue() {
@@ -819,7 +824,11 @@ class PokemonWebGame {
       !this.dom.pcModal.classList.contains("hidden") ||
       !this.dom.travelModal.classList.contains("hidden");
     if (!anyModalOpen) {
+      this.setGamepadFocus(null);
       this.overworldEngine?.setPaused(false);
+      this.syncGamepadToOverworld();
+    } else if (this.gamepadController?.connected) {
+      this.ensureActiveUiFocus();
     }
   }
 
@@ -1293,6 +1302,9 @@ class PokemonWebGame {
       this.dom.travelHubsList.appendChild(card);
     }
     this.dom.travelModal.classList.remove("hidden");
+    if (this.gamepadController?.connected) {
+      this.ensureActiveUiFocus();
+    }
   }
 
   openShopModal() {
@@ -1300,6 +1312,9 @@ class PokemonWebGame {
     this.dom.shopFeedback.classList.add("hidden");
     this.renderShopCatalog();
     this.dom.shopModal.classList.remove("hidden");
+    if (this.gamepadController?.connected) {
+      this.ensureActiveUiFocus();
+    }
   }
 
   renderShopCatalog() {
@@ -1352,6 +1367,9 @@ class PokemonWebGame {
     this.selectedPcPartyIdx = null;
     this.renderPcModal();
     this.dom.pcModal.classList.remove("hidden");
+    if (this.gamepadController?.connected) {
+      this.ensureActiveUiFocus();
+    }
   }
 
   renderPcModal() {
@@ -1436,11 +1454,16 @@ class PokemonWebGame {
       !this.dom.travelModal.classList.contains("hidden") ||
       !this.dom.dialogueOverlay.classList.contains("hidden");
     if (!anyOpen) {
+      this.setGamepadFocus(null);
       this.overworldEngine?.setPaused(false);
+      this.syncGamepadToOverworld();
+    } else if (this.gamepadController?.connected) {
+      this.ensureActiveUiFocus();
     }
   }
 
   closeAllModals() {
+    this.setGamepadFocus(null);
     this.dom.travelModal.classList.add("hidden");
     this.dom.shopModal.classList.add("hidden");
     this.dom.pcModal.classList.add("hidden");
@@ -1464,6 +1487,15 @@ class PokemonWebGame {
     this.closeModal("pauseOverlay");
   }
 
+  togglePauseMenu() {
+    if (!this.gameState) return;
+    if (!this.dom.pauseOverlay.classList.contains("hidden")) {
+      this.closePauseMenu();
+    } else {
+      this.openPauseMenu();
+    }
+  }
+
   switchPauseTab(tab) {
     this.selectedPauseTab = tab;
     const mapTabs = {
@@ -1483,6 +1515,10 @@ class PokemonWebGame {
     if (tab === "bag") this.renderPauseBag();
     if (tab === "card") this.renderPauseCard();
     if (tab === "save") this.renderPauseSaveSlots();
+
+    if (this.gamepadController?.connected) {
+      this.ensureActiveUiFocus();
+    }
   }
 
   renderPausePokedex() {
@@ -1958,7 +1994,12 @@ class PokemonWebGame {
     this.dom.battleBagPanel.classList.toggle("hidden", isFinished || mode !== "bag");
     this.dom.battleSwitchPanel.classList.toggle("hidden", isFinished || mode !== "switch");
 
-    if (isFinished) return;
+    if (isFinished) {
+      if (this.gamepadController?.connected) {
+        this.setGamepadFocus(this.dom.btnBattleContinue);
+      }
+      return;
+    }
 
     // Moves Grid
     if (mode === "fight") {
@@ -2063,6 +2104,10 @@ class PokemonWebGame {
         });
         this.dom.battleSwitchPanel.appendChild(card);
       });
+    }
+
+    if (this.gamepadController?.connected) {
+      this.ensureActiveUiFocus();
     }
   }
 
@@ -2191,7 +2236,9 @@ class PokemonWebGame {
     if (postDialogue.length > 0) {
       this.startDialogueSequence("¡Victoria!", postDialogue);
     } else {
+      this.setGamepadFocus(null);
       this.overworldEngine?.setPaused(false);
+      this.syncGamepadToOverworld();
     }
   }
 
@@ -2318,8 +2365,598 @@ class PokemonWebGame {
       this.updateOfflineStatusUI();
     }
   }
+
+  // -------------------------------------------------------------------------
+  // CONTROLES TÁCTILES ERGONÓMICOS (CRUCETA DESLIZANTE Y A/B/BICI/MENÚ)
+  // -------------------------------------------------------------------------
+  bindTouchControls() {
+    const dpadEl = this.dom.touchDpad;
+    if (dpadEl) {
+      const dpadButtons = {
+        up: this.dom.btnDpadUp,
+        down: this.dom.btnDpadDown,
+        left: this.dom.btnDpadLeft,
+        right: this.dom.btnDpadRight,
+      };
+      let activePointerId = null;
+
+      const applyDpadDirection = (dir) => {
+        const prevDir = this.activeTouchDpadDir;
+        if (dir === prevDir) return;
+        this.activeTouchDpadDir = dir;
+
+        for (const [k, btn] of Object.entries(dpadButtons)) {
+          btn?.classList.toggle("active", k === dir);
+        }
+
+        if (this.isUiBlockingOverworld()) {
+          this.overworldEngine?.setDirectionalSource("touch", null);
+          if (dir) {
+            this.navigateActiveUi(dir);
+          }
+        } else {
+          this.overworldEngine?.setDirectionalSource("touch", dir);
+        }
+      };
+
+      const computePointerDir = (clientX, clientY, target) => {
+        const rect = dpadEl.getBoundingClientRect();
+        let dir = resolveSlidingDpadDirection(clientX, clientY, rect);
+        if (!dir && target && target.dataset && target.dataset.dir) {
+          dir = target.dataset.dir;
+        }
+        return dir;
+      };
+
+      dpadEl.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        if (activePointerId !== null) return;
+        activePointerId = e.pointerId;
+        try {
+          dpadEl.setPointerCapture(e.pointerId);
+        } catch (_err) {
+          // Algunos entornos sin soporte completo de pointer capture
+        }
+        applyDpadDirection(computePointerDir(e.clientX, e.clientY, e.target));
+      });
+
+      dpadEl.addEventListener("pointermove", (e) => {
+        if (e.pointerId !== activePointerId) return;
+        e.preventDefault();
+        applyDpadDirection(computePointerDir(e.clientX, e.clientY, null));
+      });
+
+      const stopDpad = (e) => {
+        if (e.pointerId !== activePointerId) return;
+        activePointerId = null;
+        applyDpadDirection(null);
+      };
+      dpadEl.addEventListener("pointerup", stopDpad);
+      dpadEl.addEventListener("pointercancel", stopDpad);
+      dpadEl.addEventListener("lostpointercapture", stopDpad);
+    }
+
+    // Evitar menús contextuales al mantener pulsado cualquier control táctil
+    this.dom.controlsFooter?.addEventListener("contextmenu", (e) => e.preventDefault());
+
+    // Botón A (Interactuar en Overworld / Confirmar o avanzar diálogo)
+    let resetTouchA = () => {};
+    if (this.dom.btnTouchA) {
+      let activeAPointerId = null;
+      this.dom.btnTouchA.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        if (activeAPointerId !== null) return;
+        activeAPointerId = e.pointerId;
+        this.dom.btnTouchA.classList.add("active");
+        try {
+          this.dom.btnTouchA.setPointerCapture(e.pointerId);
+        } catch (_err) {
+          // Algunos entornos no implementan pointer capture
+        }
+      });
+      this.dom.btnTouchA.addEventListener("pointerup", (e) => {
+        if (e.pointerId !== activeAPointerId) return;
+        e.preventDefault();
+        activeAPointerId = null;
+        this.dom.btnTouchA.classList.remove("active");
+        this.handleConfirmAction();
+      });
+      const cancelA = (e) => {
+        if (e && e.pointerId !== activeAPointerId) return;
+        activeAPointerId = null;
+        this.dom.btnTouchA.classList.remove("active");
+      };
+      resetTouchA = () => {
+        activeAPointerId = null;
+        this.dom.btnTouchA.classList.remove("active");
+      };
+      this.dom.btnTouchA.addEventListener("pointercancel", cancelA);
+      this.dom.btnTouchA.addEventListener("lostpointercapture", cancelA);
+    }
+
+    // Botón B (Mantener para correr en Overworld / Volver atrás en menús y diálogos)
+    let resetTouchB = () => {};
+    if (this.dom.btnTouchB) {
+      let activeBPointerId = null;
+      let backPending = false;
+      this.dom.btnTouchB.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        if (activeBPointerId !== null) return;
+        activeBPointerId = e.pointerId;
+        this.dom.btnTouchB.classList.add("active");
+        try {
+          this.dom.btnTouchB.setPointerCapture(e.pointerId);
+        } catch (_err) {
+          // Algunos entornos no implementan pointer capture
+        }
+        if (this.isUiBlockingOverworld()) {
+          backPending = true;
+        } else {
+          backPending = false;
+          this.overworldEngine?.setShiftRun(true, "touch");
+        }
+      });
+      this.dom.btnTouchB.addEventListener("pointerup", (e) => {
+        if (e.pointerId !== activeBPointerId) return;
+        e.preventDefault();
+        activeBPointerId = null;
+        this.dom.btnTouchB.classList.remove("active");
+        this.overworldEngine?.setShiftRun(false, "touch");
+        if (backPending) {
+          backPending = false;
+          this.handleBackAction();
+        }
+      });
+      const cancelB = (e) => {
+        if (e && e.pointerId !== activeBPointerId) return;
+        activeBPointerId = null;
+        backPending = false;
+        this.dom.btnTouchB.classList.remove("active");
+        this.overworldEngine?.setShiftRun(false, "touch");
+      };
+      resetTouchB = () => {
+        activeBPointerId = null;
+        backPending = false;
+        this.dom.btnTouchB.classList.remove("active");
+        this.overworldEngine?.setShiftRun(false, "touch");
+      };
+      this.dom.btnTouchB.addEventListener("pointercancel", cancelB);
+      this.dom.btnTouchB.addEventListener("lostpointercapture", cancelB);
+    }
+
+    window.addEventListener("blur", () => {
+      this.activeTouchDpadDir = null;
+      [this.dom.btnDpadUp, this.dom.btnDpadDown, this.dom.btnDpadLeft, this.dom.btnDpadRight].forEach((b) =>
+        b?.classList.remove("active")
+      );
+      this.overworldEngine?.setDirectionalSource("touch", null);
+      resetTouchA();
+      resetTouchB();
+    });
+
+    // Botón Bici y Menú
+    this.dom.btnTouchBike?.addEventListener("click", () => {
+      this.overworldEngine?.toggleBike();
+      this.updateHud();
+    });
+    this.dom.btnTouchMenu?.addEventListener("click", () => {
+      this.togglePauseMenu();
+    });
+  }
+
+  isTouchControlsVisible() {
+    if (this.touchVisibilityOverride !== null) {
+      return this.touchVisibilityOverride;
+    }
+    if (typeof window !== "undefined" && typeof window.matchMedia === "function") {
+      return window.matchMedia("(pointer: coarse)").matches;
+    }
+    return false;
+  }
+
+  toggleTouchControlsVisibility() {
+    const currentlyVisible = this.isTouchControlsVisible();
+    this.touchVisibilityOverride = !currentlyVisible;
+    this.syncTouchToggleButton();
+  }
+
+  syncTouchToggleButton() {
+    if (this.dom.controlsFooter) {
+      this.dom.controlsFooter.classList.toggle("touch-force-show", this.touchVisibilityOverride === true);
+      this.dom.controlsFooter.classList.toggle("touch-force-hide", this.touchVisibilityOverride === false);
+    }
+    if (this.dom.btnToggleTouchControls) {
+      const visible = this.isTouchControlsVisible();
+      this.dom.btnToggleTouchControls.setAttribute("aria-pressed", visible ? "true" : "false");
+      this.dom.btnToggleTouchControls.classList.toggle("btn-toggle-active", visible);
+      this.dom.btnToggleTouchControls.textContent = visible ? "📱 Táctil: ON" : "📱 Táctil: OFF";
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // SOPORTE DE CONTROL INALÁMBRICO (HTML5 GAMEPAD API)
+  // -------------------------------------------------------------------------
+  initGamepadSupport() {
+    this.gamepadController = new GamepadController({
+      deadzone: 0.35,
+      onConnectionChange: (info) => {
+        if (this.dom.hudGamepadBadge) {
+          this.dom.hudGamepadBadge.classList.toggle("hidden", !info.connected);
+          if (info.connected) {
+            this.dom.hudGamepadBadge.textContent = `🎮 ${info.label}`;
+          }
+        }
+        if (info.connected) {
+          if (this.gameState) {
+            this.showToast(`Mando conectado: ${info.label}`);
+          }
+          if (this.isUiBlockingOverworld()) {
+            this.ensureActiveUiFocus();
+          }
+        } else {
+          this.overworldEngine?.setDirectionalSource("gamepad", null);
+          this.overworldEngine?.setShiftRun(false, "gamepad");
+          this.setGamepadFocus(null);
+        }
+      },
+      onDirectionChange: (dir) => {
+        if (!this.isUiBlockingOverworld()) {
+          this.overworldEngine?.setDirectionalSource("gamepad", dir);
+        } else {
+          this.overworldEngine?.setDirectionalSource("gamepad", null);
+        }
+      },
+      onNavigate: (dir) => {
+        if (this.isUiBlockingOverworld()) {
+          this.navigateActiveUi(dir);
+        }
+      },
+      onRunChange: (held) => {
+        if (!this.isUiBlockingOverworld()) {
+          this.overworldEngine?.setShiftRun(held, "gamepad");
+        } else {
+          this.overworldEngine?.setShiftRun(false, "gamepad");
+        }
+      },
+      onButtonDown: (btnName) => this.handleGamepadButtonDown(btnName),
+    });
+
+    this.gamepadController.start();
+  }
+
+  syncGamepadToOverworld() {
+    if (!this.gamepadController || !this.overworldEngine) return;
+    const status = this.gamepadController.getStatus();
+    if (!status.connected || this.isUiBlockingOverworld()) {
+      this.overworldEngine.setDirectionalSource("gamepad", null);
+      this.overworldEngine.setShiftRun(false, "gamepad");
+      return;
+    }
+    this.overworldEngine.setDirectionalSource("gamepad", status.direction);
+    this.overworldEngine.setShiftRun(status.runHeld, "gamepad");
+  }
+
+  handleGamepadButtonDown(btnName) {
+    if (btnName === "A") {
+      this.handleConfirmAction();
+      return;
+    }
+
+    if (btnName === "B") {
+      if (this.isUiBlockingOverworld()) {
+        this.handleBackAction();
+      }
+      return;
+    }
+
+    if (btnName === "X" || btnName === "SELECT") {
+      if (!this.isUiBlockingOverworld()) {
+        this.overworldEngine?.toggleBike();
+        this.updateHud();
+      }
+      return;
+    }
+
+    if (btnName === "START") {
+      if (!this.gameState || !this.dom.screenTitle.classList.contains("hidden")) {
+        return;
+      }
+      if (!this.dom.battleOverlay.classList.contains("hidden")) {
+        return;
+      }
+      if (!this.dom.shopModal.classList.contains("hidden")) {
+        this.closeModal("shopModal");
+      } else if (!this.dom.pcModal.classList.contains("hidden")) {
+        this.closeModal("pcModal");
+      } else if (!this.dom.travelModal.classList.contains("hidden")) {
+        this.closeModal("travelModal");
+      } else if (this.dom.dialogueOverlay.classList.contains("hidden")) {
+        this.togglePauseMenu();
+      }
+      return;
+    }
+
+    if (btnName === "LB" || btnName === "RB") {
+      this.cycleActiveTabs(btnName === "RB" ? 1 : -1);
+    }
+  }
+
+  cycleActiveTabs(step) {
+    if (!this.dom.screenTitle.classList.contains("hidden")) {
+      const tabs = ["continue", "newgame", "import"];
+      const activeIdx = this.dom.tabTitleContinue.classList.contains("active")
+        ? 0
+        : this.dom.tabTitleNewGame.classList.contains("active")
+        ? 1
+        : 2;
+      const next = tabs[(activeIdx + step + tabs.length) % tabs.length];
+      this.switchTitleTab(next);
+      return;
+    }
+    if (!this.dom.pauseOverlay.classList.contains("hidden")) {
+      const tabs = ["pokedex", "party", "bag", "card", "save"];
+      const idx = Math.max(0, tabs.indexOf(this.selectedPauseTab));
+      this.switchPauseTab(tabs[(idx + step + tabs.length) % tabs.length]);
+      return;
+    }
+    if (!this.dom.battleOverlay.classList.contains("hidden") && this.battleEngine) {
+      const state = this.battleEngine.getState();
+      if (state.status !== "active" || state.awaitingPlayerSwitch) return;
+      const modes = ["fight", "bag", "switch"];
+      const idx = Math.max(0, modes.indexOf(this.battleSubMode));
+      this.battleSubMode = modes[(idx + step + modes.length) % modes.length];
+      this.renderBattlePanels();
+    }
+  }
+
+  isUiBlockingOverworld() {
+    if (!this.gameState || !this.dom.screenTitle.classList.contains("hidden")) {
+      return true;
+    }
+    return (
+      !this.dom.battleOverlay.classList.contains("hidden") ||
+      !this.dom.dialogueOverlay.classList.contains("hidden") ||
+      !this.dom.shopModal.classList.contains("hidden") ||
+      !this.dom.pcModal.classList.contains("hidden") ||
+      !this.dom.travelModal.classList.contains("hidden") ||
+      !this.dom.pauseOverlay.classList.contains("hidden")
+    );
+  }
+
+  getActiveUiRoot() {
+    if (!this.dom.battleOverlay.classList.contains("hidden")) return this.dom.battleOverlay;
+    if (!this.dom.dialogueOverlay.classList.contains("hidden")) return this.dom.dialogueOverlay;
+    if (!this.dom.shopModal.classList.contains("hidden")) return this.dom.shopModal;
+    if (!this.dom.pcModal.classList.contains("hidden")) return this.dom.pcModal;
+    if (!this.dom.travelModal.classList.contains("hidden")) return this.dom.travelModal;
+    if (!this.dom.pauseOverlay.classList.contains("hidden")) return this.dom.pauseOverlay;
+    if (!this.dom.screenTitle.classList.contains("hidden")) return this.dom.screenTitle;
+    return null;
+  }
+
+  getNavigableElements(root) {
+    if (!root) return [];
+    const selector =
+      "button:not(:disabled), select:not(:disabled), input:not(:disabled), .protagonist-card, .starter-card";
+    return [...root.querySelectorAll(selector)].filter((el) => {
+      if (el.closest(".hidden") || el.classList.contains("hidden")) return false;
+      const rect = el.getBoundingClientRect?.();
+      return rect ? rect.width > 0 && rect.height > 0 : true;
+    });
+  }
+
+  getDefaultUiFocusTarget(root) {
+    if (!root) return null;
+    if (root === this.dom.battleOverlay) {
+      if (!this.dom.battleFinishBar.classList.contains("hidden")) {
+        return this.dom.btnBattleContinue;
+      }
+      const moveBtn = this.dom.battleMovesGrid.querySelector("button:not(:disabled)");
+      if (!this.dom.battleMovesGrid.classList.contains("hidden") && moveBtn) return moveBtn;
+      const bagBtn = this.dom.battleBagPanel.querySelector("button:not(:disabled)");
+      if (!this.dom.battleBagPanel.classList.contains("hidden") && bagBtn) return bagBtn;
+      const swBtn = this.dom.battleSwitchPanel.querySelector("button:not(:disabled)");
+      if (!this.dom.battleSwitchPanel.classList.contains("hidden") && swBtn) return swBtn;
+    }
+    if (root === this.dom.dialogueOverlay) {
+      return this.dom.dialogueChoices.querySelector("button:not(:disabled)");
+    }
+    const items = this.getNavigableElements(root);
+    return items[0] || null;
+  }
+
+  setGamepadFocus(el) {
+    if (this.focusedNavElement && this.focusedNavElement !== el) {
+      this.focusedNavElement.classList.remove("gamepad-focus");
+    }
+    document.querySelectorAll(".gamepad-focus").forEach((node) => {
+      if (node !== el) node.classList.remove("gamepad-focus");
+    });
+    this.focusedNavElement = el || null;
+    if (el) {
+      el.classList.add("gamepad-focus");
+      el.scrollIntoView?.({ block: "nearest", inline: "nearest" });
+    }
+  }
+
+  ensureActiveUiFocus() {
+    const root = this.getActiveUiRoot();
+    if (!root) {
+      this.setGamepadFocus(null);
+      return null;
+    }
+    const items = this.getNavigableElements(root);
+    if (this.focusedNavElement && items.includes(this.focusedNavElement)) {
+      return this.focusedNavElement;
+    }
+    const target = this.getDefaultUiFocusTarget(root) || items[0] || null;
+    this.setGamepadFocus(target);
+    return target;
+  }
+
+  navigateActiveUi(dir) {
+    const root = this.getActiveUiRoot();
+    if (!root) return;
+    const items = this.getNavigableElements(root);
+    if (items.length === 0) return;
+
+    if (!this.focusedNavElement || !items.includes(this.focusedNavElement)) {
+      this.setGamepadFocus(this.getDefaultUiFocusTarget(root) || items[0]);
+      return;
+    }
+
+    const cur = this.focusedNavElement;
+    const curRect = cur.getBoundingClientRect();
+    const cx = curRect.left + curRect.width / 2;
+    const cy = curRect.top + curRect.height / 2;
+
+    let bestEl = null;
+    let bestScore = Infinity;
+
+    for (const el of items) {
+      if (el === cur) continue;
+      const r = el.getBoundingClientRect();
+      const nx = r.left + r.width / 2;
+      const ny = r.top + r.height / 2;
+      const dx = nx - cx;
+      const dy = ny - cy;
+
+      let primary = 0;
+      let ortho = 0;
+      if (dir === "up") {
+        if (dy >= -4) continue;
+        primary = -dy;
+        ortho = Math.abs(dx);
+      } else if (dir === "down") {
+        if (dy <= 4) continue;
+        primary = dy;
+        ortho = Math.abs(dx);
+      } else if (dir === "left") {
+        if (dx >= -4) continue;
+        primary = -dx;
+        ortho = Math.abs(dy);
+      } else if (dir === "right") {
+        if (dx <= 4) continue;
+        primary = dx;
+        ortho = Math.abs(dy);
+      }
+
+      const score = primary + ortho * 2.4;
+      if (score < bestScore) {
+        bestScore = score;
+        bestEl = el;
+      }
+    }
+
+    if (!bestEl) {
+      const idx = items.indexOf(cur);
+      const delta = dir === "left" || dir === "up" ? -1 : 1;
+      bestEl = items[(idx + delta + items.length) % items.length];
+    }
+
+    this.setGamepadFocus(bestEl);
+  }
+
+  handleConfirmAction() {
+    if (!this.isUiBlockingOverworld()) {
+      this.overworldEngine?.interact();
+      return;
+    }
+
+    if (!this.dom.dialogueOverlay.classList.contains("hidden")) {
+      const choiceButtons = [...this.dom.dialogueChoices.querySelectorAll("button")];
+      if (choiceButtons.length === 1) {
+        choiceButtons[0].click();
+        return;
+      }
+      const target =
+        this.focusedNavElement && choiceButtons.includes(this.focusedNavElement)
+          ? this.focusedNavElement
+          : choiceButtons[0];
+      target?.click();
+      return;
+    }
+
+    const root = this.getActiveUiRoot();
+    if (!root) return;
+    const items = this.getNavigableElements(root);
+    let target =
+      this.focusedNavElement && items.includes(this.focusedNavElement)
+        ? this.focusedNavElement
+        : this.getDefaultUiFocusTarget(root);
+
+    if (!target) return;
+    this.setGamepadFocus(target);
+
+    if (target.tagName === "SELECT" && target.options?.length > 0) {
+      target.selectedIndex = (target.selectedIndex + 1) % target.options.length;
+      target.dispatchEvent(new Event("change", { bubbles: true }));
+      return;
+    }
+
+    target.click();
+    if (this.gamepadController?.connected && this.isUiBlockingOverworld()) {
+      this.ensureActiveUiFocus();
+    }
+  }
+
+  handleBackAction() {
+    if (!this.dom.battleOverlay.classList.contains("hidden")) {
+      const state = this.battleEngine?.getState();
+      if (state && state.status === "active" && !state.awaitingPlayerSwitch && this.battleSubMode !== "fight") {
+        this.battleSubMode = "fight";
+        this.renderBattlePanels();
+      }
+      return;
+    }
+
+    if (!this.dom.dialogueOverlay.classList.contains("hidden")) {
+      const choiceButtons = [...this.dom.dialogueChoices.querySelectorAll("button")];
+      if (choiceButtons.length === 1) {
+        choiceButtons[0].click();
+      } else {
+        this.closeDialogue();
+      }
+      return;
+    }
+
+    if (!this.dom.shopModal.classList.contains("hidden")) {
+      this.closeModal("shopModal");
+      return;
+    }
+
+    if (!this.dom.pcModal.classList.contains("hidden")) {
+      if (this.selectedPcPartyIdx !== null) {
+        this.selectedPcPartyIdx = null;
+        this.dom.pcSelectedInfo.textContent = "Selección cancelada. Elige un Pokémon o pulsa Desconectar.";
+        this.renderPcModal();
+        if (this.gamepadController?.connected) this.ensureActiveUiFocus();
+      } else {
+        this.closeModal("pcModal");
+      }
+      return;
+    }
+
+    if (!this.dom.travelModal.classList.contains("hidden")) {
+      this.closeModal("travelModal");
+      return;
+    }
+
+    if (!this.dom.pauseOverlay.classList.contains("hidden")) {
+      this.closePauseMenu();
+      return;
+    }
+
+    if (!this.dom.screenTitle.classList.contains("hidden")) {
+      if (!this.dom.tabTitleContinue.classList.contains("active")) {
+        this.switchTitleTab("continue");
+        if (this.gamepadController?.connected) this.ensureActiveUiFocus();
+      }
+    }
+  }
 }
 
 const app = new PokemonWebGame();
 app.init();
+
 

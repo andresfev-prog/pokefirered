@@ -1,8 +1,8 @@
 {
-  "version": "v1-4748f14b80",
-  "generatedAt": "2026-11-17T03:22:09.511285+00:00",
-  "totalAssets": 794,
-  "totalSizeMB": 6.29,
+  "version": "v1-195904dede",
+  "generatedAt": "2026-11-17T03:41:01.634494+00:00",
+  "totalAssets": 795,
+  "totalSizeMB": 6.33,
   "coreShell": [
     "./css/game.css",
     "./index.html",
@@ -12,6 +12,7 @@
     "./js/battle/battleTestUI.js",
     "./js/battle/damageCalculator.js",
     "./js/battle/levelScaler.js",
+    "./js/game/gamepadController.js",
     "./js/game/leagueAndFrontier.js",
     "./js/game/mainApp.js",
     "./js/game/pokemonProgress.js",
@@ -29,7 +30,7 @@
   ],
   "counts": {
     "core": 3,
-    "js": 14,
+    "js": 15,
     "data": 6,
     "maps": 257,
     "assets": 514
@@ -43,6 +44,7 @@
     "./js/battle/battleTestUI.js",
     "./js/battle/damageCalculator.js",
     "./js/battle/levelScaler.js",
+    "./js/game/gamepadController.js",
     "./js/game/leagueAndFrontier.js",
     "./js/game/mainApp.js",
     "./js/game/pokemonProgress.js",

@@ -472,10 +472,14 @@ select {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  background: rgba(19, 27, 46, 0.85);
+  background: rgba(19, 27, 46, 0.9);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  padding: 10px 14px;
+  padding: 12px 14px max(12px, env(safe-area-inset-bottom)) 14px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .key-hints {
@@ -496,29 +500,175 @@ select {
 }
 
 .touch-controls {
-  display: flex;
+  display: none;
+  width: 100%;
   align-items: center;
-  gap: 14px;
+  justify-content: space-between;
+  gap: 16px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+@media (pointer: coarse) {
+  .controls-footer:not(.touch-force-hide) .touch-controls {
+    display: flex;
+  }
+  .controls-footer:not(.touch-force-hide) .key-hints {
+    display: none;
+  }
+}
+
+.controls-footer.touch-force-show .touch-controls {
+  display: flex;
+}
+
+.controls-footer.touch-force-hide .touch-controls {
+  display: none !important;
 }
 
 .dpad-grid {
   display: grid;
-  grid-template-columns: repeat(3, 36px);
-  grid-template-rows: repeat(2, 34px);
-  gap: 4px;
+  grid-template-columns: repeat(3, 46px);
+  grid-template-rows: repeat(3, 46px);
+  gap: 3px;
+  padding: 6px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.dpad-center {
+  border-radius: 8px;
+  background: radial-gradient(circle, #334155 0%, #1e293b 70%);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  pointer-events: none;
+}
+
+.dpad-spacer {
+  pointer-events: none;
 }
 
 .dpad-btn {
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: #1e293b;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(180deg, #27354f, #1a2438);
   color: #f8fafc;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  transition: transform 0.06s ease, background 0.1s ease, border-color 0.1s ease;
 }
 
-.dpad-btn:active {
-  background: #334155;
+.dpad-btn:active,
+.dpad-btn.active {
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+  border-color: #93c5fd;
+  transform: scale(0.95);
+}
+
+.touch-right-pad {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.touch-utility-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.touch-util-btn {
+  min-height: 36px;
+  padding: 6px 12px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.touch-util-btn.active {
+  border-color: #fbbf24;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #111827;
+}
+
+.touch-ab-cluster {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  padding: 2px 4px;
+  touch-action: none;
+  user-select: none;
+}
+
+.touch-ab-btn {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.42);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  transition: transform 0.06s ease, filter 0.1s ease;
+}
+
+.touch-ab-btn .ab-letter {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.touch-ab-btn .ab-sub {
+  font-size: 0.56rem;
+  font-weight: 600;
+  opacity: 0.92;
+  letter-spacing: 0.02em;
+}
+
+.touch-btn-b {
+  background: linear-gradient(145deg, #dc2626, #991b1b);
+  border-color: rgba(252, 165, 165, 0.45);
+  margin-top: 12px;
+}
+
+.touch-btn-a {
+  background: linear-gradient(145deg, #16a34a, #15803d);
+  border-color: rgba(134, 239, 172, 0.5);
+  margin-bottom: 12px;
+}
+
+.touch-ab-btn:active,
+.touch-ab-btn.active {
+  transform: scale(0.92);
+  filter: brightness(1.18);
+  border-color: #fde047;
 }
 
 /* ---------------- DIÁLOGO GBA Y MODALES ---------------- */
@@ -952,3 +1102,79 @@ select {
   transition: width 0.2s ease;
 }
 
+/* ---------------- MANDO INALÁMBRICO Y FOCO DE MENÚ ---------------- */
+.gamepad-pill {
+  background: rgba(34, 197, 94, 0.16);
+  color: #86efac;
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.gamepad-focus {
+  outline: 3px solid #fbbf24 !important;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.28) !important;
+}
+
+.btn-toggle-active {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  color: #e0f2fe;
+}
+
+@media (max-width: 720px) {
+  .game-shell {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .game-hud {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .viewport-stage {
+    min-height: 210px;
+  }
+
+  .dpad-grid {
+    grid-template-columns: repeat(3, 44px);
+    grid-template-rows: repeat(3, 44px);
+  }
+
+  .touch-ab-btn {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+@media (max-height: 540px) and (pointer: coarse) {
+  .game-shell {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+
+  .viewport-stage {
+    min-height: 170px;
+    max-height: 52vh;
+  }
+
+  #overworldCanvas {
+    max-height: 50vh;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .controls-footer {
+    padding: 8px 12px max(10px, env(safe-area-inset-bottom)) 12px;
+  }
+
+  .dpad-grid {
+    grid-template-columns: repeat(3, 40px);
+    grid-template-rows: repeat(3, 40px);
+  }
+
+  .touch-ab-btn {
+    width: 52px;
+    height: 52px;
+  }
+}
